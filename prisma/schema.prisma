@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100)
+  categories Category[]
+  description String
+  price Decimal
+  book Book?
+  cartItems CartItem[]
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  products Product[]
+}
+
+model Book {
+  id Int @id @default(autoincrement())
+  product Product @relation(fields: [productId], references: [id])
+  productId Int @unique
+  authors Author[]
+  publisher Publisher @relation(fields: [publisherId], references: [id])
+  publisherId Int 
+  year Int @db.SmallInt
+  pages Int @db.SmallInt
+}
+
+model Author {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100)
+  books Book[]
+}
+
+model Publisher {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100)
+  books Book[]
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  cart Cart?
+}
+
+model Cart {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id])
+  userId Int @unique
+  cartItems CartItem[]
+}
+
+model CartItem {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cart Cart @relation(fields: [cartId], references: [id])
+  cartId Int @unique
+  product Product @relation(fields: [productId], references: [id])
+  productId Int @unique
+  qty Int @db.SmallInt
+}
