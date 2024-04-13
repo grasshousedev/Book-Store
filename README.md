@@ -1,4 +1,4 @@
-This is a React Store Book using Next.js, shadcn, MongoDB, redux, Typescript, Jest, Testing Library, Tailwind CSS and ESLint.
+This is a React Store Book using Next.js, shadcn, PostgreSQL, redux, Typescript, Jest, Testing Library, Tailwind CSS and ESLint.
 
 ## Runs next dev to start Next.js in development mode.
 
