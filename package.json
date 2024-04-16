@@ -21,6 +21,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@testing-library/react": "^15.0.1",
     "@types/node": "^20.12.7",
     "@types/react": "^18",
@@ -33,5 +34,8 @@
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }
