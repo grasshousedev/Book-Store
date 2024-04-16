@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { fontPrimary, fontSecondary } from "../styles/fonts";
 import "../styles/globals.css";
+import Header from "@/components/common/header";
+import Footer from "@/components/common/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,8 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fontPrimary.variable} ${fontSecondary.variable} font-secondary`}>
-        {children}
+      <body
+        className={`${fontPrimary.variable} ${fontSecondary.variable} font-secondary`}
+      >
+        <div>
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

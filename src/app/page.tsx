@@ -1,11 +1,19 @@
-import EmmanuelsBookStore from "@/assets/images/emmanuels-book-store";
+import Countdown from "@/components/home/countdown";
+import ExploreOurTopCategories from "@/components/home/explore-our-top-categories";
+import FeaturedAuthors from "@/components/home/featured-authors";
+import NewReleaseBooks from "@/components/home/new-release-books";
+import SubscribeToOurNewsletter from "@/components/home/subscribe-to-our-newsletter";
+import TheEmmanuelsBlog from "@/components/home/the-emmanuels-blog";
 
 export default function Home() {
   return (
-    <div>
-      <EmmanuelsBookStore />
-      <h1 className="font-primary">Title 1</h1>
-      <p>Elit do duis aliqua incididunt qui fugiat magna. Laboris sunt ipsum velit sint velit exercitation laborum officia commodo reprehenderit mollit. Eiusmod non ipsum occaecat reprehenderit id magna.</p>
-    </div>
+    <>
+      <NewReleaseBooks />
+      <ExploreOurTopCategories />
+      <FeaturedAuthors />
+      <Countdown />
+      <SubscribeToOurNewsletter />
+      <TheEmmanuelsBlog />
+    </>
   );
 }
