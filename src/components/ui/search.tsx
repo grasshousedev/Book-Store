@@ -12,7 +12,7 @@ export default function Search() {
 
   return (
     <form>
-      <label className="block flex rounded-full bg-green-100 py-2 px-4">
+      <label className="flex rounded-full bg-green-100 py-2 px-4">
         <input
           type="text"
           name="search"
