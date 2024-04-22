@@ -1,4 +1,4 @@
-export default function Icon() {
+export default function EmmanuelsBookStore() {
   return (
     <svg
       width="183"

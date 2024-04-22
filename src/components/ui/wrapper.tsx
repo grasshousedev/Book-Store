@@ -5,7 +5,7 @@ export interface WrapperProps extends React.ComponentProps<"div"> {
 }
 
 export default function Wrapper({ children, ...props }: WrapperProps) {
-  let divClasses = "xl:w-[1024px] 2xl:w-[1280px] mx-auto";
+  let divClasses = "xl:w-[1280px] 2xl:w-[1536px] mx-auto";
   props.className = props.className
     ? divClasses + " " + props.className
     : divClasses;
