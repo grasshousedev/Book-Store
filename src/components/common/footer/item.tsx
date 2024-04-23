@@ -12,7 +12,7 @@ export default function Item({ noLink, title, children, ...props }: ItemProps) {
       {noLink ? (
         children
       ) : (
-        <a href="" title={title} className="py-4 px-10 block">
+        <a href="" title={title} className="px-10 py-4 lg:py-0 block">
           {children}
         </a>
       )}
