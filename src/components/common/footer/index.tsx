@@ -46,9 +46,14 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className="bg-green-300 col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 pb-10">
+      <div className="bg-green-300 col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 lg:pb-10">
         <div>
-          <Title level="h3" size="small" id="footer-help" className="px-10 pt-10 pb-2 lg:pb-0">
+          <Title
+            level="h3"
+            size="small"
+            id="footer-help"
+            className="px-10 pt-10 pb-2 lg:pb-0"
+          >
             Help
           </Title>
           <nav aria-labelledby="footer-help" className="lg:py-2">
@@ -62,7 +67,12 @@ export default function Footer() {
           </nav>
         </div>
         <div>
-          <Title level="h3" size="small" id="footer-explore" className="px-10 pt-10 pb-2 lg:pb-0">
+          <Title
+            level="h3"
+            size="small"
+            id="footer-explore"
+            className="px-10 pt-10 pb-2 lg:pb-0"
+          >
             Explore
           </Title>
           <nav aria-labelledby="footer-explore" className="lg:py-2">

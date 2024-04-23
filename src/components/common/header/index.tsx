@@ -1,11 +1,23 @@
+"use client";
 import EmmanuelsBookStore from "@/assets/images/emmanuels-book-store";
 import Wrapper from "../../ui/wrapper";
-import Cart from "./cart";
 import Search from "../../ui/search";
 import Menu from "./menu/index";
-import Account from "./account";
+import AccountAction from "./account-action";
+import CartAction from "./cart-action";
+import MenuAction from "./menu-action";
+import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isLgScreen = useMediaQuery({ query: "(min-width: 1024px)" });
+
+  function swipeMenu() {
+    if (isMenuOpen) setIsMenuOpen(false);
+    else setIsMenuOpen(true);
+  }
+
   return (
     <Wrapper className="bg-green-500 lg:text-xs lg:leading-none">
       <div className="flex flex-col lg:flex-row px-10 py-5 gap-4 lg:gap-20 items-center">
@@ -16,11 +28,12 @@ export default function Header() {
           <Search />
         </div>
         <div className="flex items-start divide-x">
-          <Account />
-          <Cart />
+          <AccountAction />
+          <CartAction />
+          <MenuAction onClick={swipeMenu} isMenuOpen={isMenuOpen} />
         </div>
       </div>
-      <Menu />
+      {(isMenuOpen || isLgScreen) && <Menu />}
     </Wrapper>
   );
 }
