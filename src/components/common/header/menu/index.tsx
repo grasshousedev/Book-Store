@@ -1,9 +1,17 @@
+"use client";
 import Collapsible from "@/components/ui/collapsible";
 import Item from "./item";
+import { useMediaQuery } from "react-responsive";
 
-export default function Menu() {
+export interface MenuProps extends React.ComponentProps<"nav"> {
+  isOpen: boolean;
+}
+
+export default function Menu({ isOpen }: MenuProps) {
+  const isLgScreen = useMediaQuery({ query: "(min-width: 1024px)" });
+  const showMenuClass = isLgScreen || isOpen ? "" : "hidden";
   return (
-    <nav className="bg-green-200">
+    <nav className={`${showMenuClass} bg-green-200`}>
       <ul className="flex flex-col lg:flex-row justify-center divide-y lg:divide-y-0 lg:divide-x">
         <Item title="About Us">About Us</Item>
         <Item noLink={true} title="Books">

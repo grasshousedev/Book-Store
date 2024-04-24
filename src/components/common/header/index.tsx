@@ -7,12 +7,10 @@ import AccountAction from "./account-action";
 import CartAction from "./cart-action";
 import MenuAction from "./menu-action";
 import { useState } from "react";
-import { useMediaQuery } from "react-responsive";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isLgScreen = useMediaQuery({ query: "(min-width: 1024px)" });
-
+  
   function swipeMenu() {
     if (isMenuOpen) setIsMenuOpen(false);
     else setIsMenuOpen(true);
@@ -33,7 +31,7 @@ export default function Header() {
           <MenuAction onClick={swipeMenu} isMenuOpen={isMenuOpen} />
         </div>
       </div>
-      {(isMenuOpen || isLgScreen) && <Menu />}
+      <Menu isOpen={isMenuOpen} />
     </Wrapper>
   );
 }
