@@ -6,5 +6,3 @@ export const PageType = {
 } as const;
 
 export type PageType = "product" | "category" | "author" | "publisher";
-
-export default PageType;

@@ -1,0 +1,1 @@
+export { ExploreOurTopCategoriesComponent as ExploreOurTopCategoriesContainer } from "../components/explore-our-top-categories-component"

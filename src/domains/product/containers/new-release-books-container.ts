@@ -1,0 +1,1 @@
+export { NewReleaseBooksComponent as NewReleaseBooksContainer } from "../components/new-release-books-component"
