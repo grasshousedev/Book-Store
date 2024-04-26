@@ -10,7 +10,6 @@ import { TheEmmanuelsBlogContainer } from "@/domains/blog/containers/the-emmanue
 export function HomeContainer() {
   return (
     <UiWrapperComponent>
-      Home Content
       <NewReleaseBooksContainer />
       <ExploreOurTopCategoriesContainer />
       <FeaturedAuthorsContainer />

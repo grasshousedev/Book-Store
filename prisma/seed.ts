@@ -1,7 +1,7 @@
 import { PrismaClient, Prisma } from "@prisma/client";
 const prisma = new PrismaClient();
 import { Author, Book, Category, Product, Publisher, data } from "../data/seed";
-import PageType from "../src/const/page";
+import { PageType } from "../src/const/page";
 
 function truncate(text: string, maxLength: number) {
   return text.length > maxLength - 3
