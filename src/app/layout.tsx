@@ -19,9 +19,11 @@ export default function RootLayout({
       <body
         className={`${fontPrimary.variable} ${fontSecondary.variable} font-secondary`}
       >
-        <div>
+        <div className="min-h-dvh flex flex-col">
           <HeaderContainer />
-          {children}
+          <div className="grow">
+            {children}
+          </div>
           <FooterContainer />
         </div>
       </body>
