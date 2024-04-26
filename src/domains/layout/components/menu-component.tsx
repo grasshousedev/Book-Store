@@ -13,6 +13,7 @@ export function MenuComponent() {
         <MenuItemComponent title="About Us">About Us</MenuItemComponent>
         <MenuItemComponent noLink={true} title="Books">
           <UiCollapsibleComponent
+            shouldCloseWhenOutside={true}
             theHeader="Books"
             theContent={
               <ul className="bg-green-100 divide-y">
