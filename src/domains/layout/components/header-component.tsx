@@ -4,14 +4,15 @@ import { UiWrapperComponent } from "@/ui-wrapper-component";
 import { UiSearchComponent } from "@/ui-search-component";
 import { MenuComponent } from "./menu-component";
 import { MenuCtaComponent } from "./menu-cta-component";
+import Link from 'next/link';
 
 export function HeaderComponent() {
   return (
     <UiWrapperComponent className="bg-green-500 lg:text-xs lg:leading-none">
       <div className="flex flex-col lg:flex-row px-10 py-5 gap-4 lg:gap-20 items-center">
-        <a href="">
+        <Link href="/">
           <EmmanuelsBookStoreImage />
-        </a>
+        </Link>
         <div className="grow self-stretch lg:self-auto">
           <UiSearchComponent />
         </div>
