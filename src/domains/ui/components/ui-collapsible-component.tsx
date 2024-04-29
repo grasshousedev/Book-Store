@@ -10,7 +10,7 @@ export interface UiCollapsibleComponentInterface extends React.ComponentProps<"d
   theContent: ReactNode;
 }
 
-export function UiCollapsibleComponent({ theHeader, theContent, ...props }: UiCollapsibleComponentInterface) {
+export function UiCollapsibleComponent({ shouldCloseWhenOutside, theHeader, theContent, ...props }: UiCollapsibleComponentInterface) {
   const [isOpen, setIsOpen] = useState(false);
 
   const ref = useOutsideClick(() => {

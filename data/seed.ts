@@ -56,7 +56,7 @@ const categories = [
       },
       {
         name: "Zero to One: Notes on Startups, or How to Build the Future",
-        authors: ["Peter Thiel e Blake Masters"],
+        authors: ["Peter Thiel", "Blake Masters"],
       },
       {
         name: "Thinking, Fast and Slow",
