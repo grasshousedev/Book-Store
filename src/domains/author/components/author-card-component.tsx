@@ -1,8 +1,8 @@
 import { UiTitleComponent } from "@/domains/ui/components/ui-title-component";
-import { AuthorPrisma } from "../types/author-prisma";
+import { AuthorWithPagePrisma } from "../types/author-prisma";
 import { AuthorLinkComponent } from "./author-link-component";
 
-export function AuthorCardComponent({ author }: { author: AuthorPrisma }) {
+export function AuthorCardComponent({ author }: { author: AuthorWithPagePrisma }) {
   return (
     <div className="bg-red-50 p-5 w-[227px] h-[267px] flex-none text-sm text-pretty">
       <AuthorLinkComponent author={author}>

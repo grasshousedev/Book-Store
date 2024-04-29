@@ -1,6 +1,6 @@
-import { CategoryPrisma } from "./category-prisma"
+import { CategoryWithPagePrisma } from "./category-prisma"
 
 
 export type ExploreOurTopCategoriesType = {
-  categories: CategoryPrisma[]
+  categories: CategoryWithPagePrisma[]
 }

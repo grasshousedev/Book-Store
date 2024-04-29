@@ -1,9 +1,9 @@
-import { AuthorContainer } from "@/domains/author/containers/author-container";
+import { AuthorPageContainer } from "@/domains/author/containers/author-page-container";
 
 export default async function Author({
   params,
 }: {
   params: { slug: string };
 }) {
-  return <AuthorContainer slug={params.slug} />;
+  return <AuthorPageContainer slug={params.slug} />;
 }

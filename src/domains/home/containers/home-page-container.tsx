@@ -7,7 +7,7 @@ import { SubscribeToOurNewsletterContainer } from "@/domains/newsletter/containe
 import { TheEmmanuelsBlogContainer } from "@/domains/blog/containers/the-emmanuels-blog-container";
 
 
-export function HomeContainer() {
+export function HomePageContainer() {
   return (
     <UiWrapperComponent>
       <NewReleaseBooksContainer />

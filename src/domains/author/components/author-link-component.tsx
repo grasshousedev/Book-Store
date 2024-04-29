@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import { AuthorPrisma } from "../types/author-prisma";
+import { AuthorWithPagePrisma } from "../types/author-prisma";
 import Link from "next/link";
 
 export function AuthorLinkComponent({
   author,
   children,
 }: {
-  author: AuthorPrisma;
+  author: AuthorWithPagePrisma;
   children: ReactNode;
 }) {
   const link = `/author/${author.page.slug}`;

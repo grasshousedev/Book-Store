@@ -1,7 +1,7 @@
-import { HomeContainer } from "@/domains/home/containers/home-container";
+import { HomePageContainer } from "@/domains/home/containers/home-page-container";
 
 export default async function Home() {
   return (
-    <HomeContainer />
+    <HomePageContainer />
   );
 }

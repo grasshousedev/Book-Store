@@ -3,7 +3,7 @@
 import { createContext, useContext, ReactNode, useState } from "react";
 import { ExploreOurTopCategoriesType } from "../types/explore-our-top-categories-type";
 import { ExploreOurTopCategoriesContextType } from "../types/explore-our-top-categories-context-type";
-import { CategoryPrisma } from "../types/category-prisma";
+import { CategoryWithPagePrisma } from "../types/category-prisma";
 
 const initialState: ExploreOurTopCategoriesType = {
   categories: [],
@@ -17,7 +17,7 @@ export function ExploreOurTopCategoriesProvider({
   categories,
   children,
 }: {
-  categories: CategoryPrisma[];
+  categories: CategoryWithPagePrisma[];
   children: ReactNode;
 }) {
   const [state, setState] = useState({ ...initialState, categories: categories });

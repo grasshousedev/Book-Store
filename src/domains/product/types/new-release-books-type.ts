@@ -1,6 +1,6 @@
-import { ProductPrisma } from "./product-prisma"
+import { ProductWithPageAndBookPrisma } from "./product-prisma"
 
 
 export type NewReleaseBooksType = {
-  books: ProductPrisma[]
+  books: ProductWithPageAndBookPrisma[]
 }

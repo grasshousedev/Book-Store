@@ -1,6 +1,6 @@
-import { AuthorPrisma } from "./author-prisma"
+import { AuthorWithPagePrisma } from "./author-prisma"
 
 
 export type FeaturedAuthorsType = {
-  authors: AuthorPrisma[]
+  authors: AuthorWithPagePrisma[]
 }

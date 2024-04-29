@@ -1,9 +1,9 @@
-import { CategoryContainer } from "@/domains/category/containers/category-container";
+import { CategoryPageContainer } from "@/domains/category/containers/category-page-container";
 
 export default async function Category({
   params,
 }: {
   params: { slug: string };
 }) {
-  return <CategoryContainer slug={params.slug} />;
+  return <CategoryPageContainer slug={params.slug} />;
 }

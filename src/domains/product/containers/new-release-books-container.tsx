@@ -1,10 +1,10 @@
 import { NewReleaseBooksComponent } from "../components/new-release-books-component";
 import { NewReleaseBooksProvider } from "../contexts/new-release-books-context";
 import prisma from "@/lib/db";
-import { ProductPrisma } from "../types/product-prisma";
+import { ProductWithPageAndBookPrisma } from "../types/product-prisma";
 
 export async function NewReleaseBooksContainer() {
-  const books: ProductPrisma[] = await prisma.product.findMany({
+  const books: ProductWithPageAndBookPrisma[] = await prisma.product.findMany({
     include: {
       book: {
         include: {

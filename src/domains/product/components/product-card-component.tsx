@@ -1,9 +1,9 @@
 import { UiTitleComponent } from "@/domains/ui/components/ui-title-component";
-import { ProductPrisma } from "../types/product-prisma";
+import { ProductWithPageAndBookPrisma } from "../types/product-prisma";
 import { ProductLinkComponent } from "./product-link-component";
 import { useBookAuthors } from "../helpers/useBookAuthors";
 
-export function ProductCardComponent({ product }: { product: ProductPrisma }) {
+export function ProductCardComponent({ product }: { product: ProductWithPageAndBookPrisma }) {
   return (
     <div className="bg-red-50 p-5 w-[227px] h-[400px] flex-none text-sm text-pretty">
       <ProductLinkComponent product={product}>

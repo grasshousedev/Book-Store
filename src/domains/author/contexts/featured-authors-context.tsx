@@ -3,7 +3,7 @@
 import { createContext, useContext, ReactNode, useState } from "react";
 import { FeaturedAuthorsType } from "../types/featured-authors-type";
 import { FeaturedAuthorsContextType } from "../types/featured-authors-context-type";
-import { AuthorPrisma } from "../types/author-prisma";
+import { AuthorWithPagePrisma } from "../types/author-prisma";
 
 const initialState: FeaturedAuthorsType = {
   authors: [],
@@ -17,7 +17,7 @@ export function FeaturedAuthorsProvider({
   authors,
   children,
 }: {
-  authors: AuthorPrisma[];
+  authors: AuthorWithPagePrisma[];
   children: ReactNode;
 }) {
   const [state, setState] = useState({ ...initialState, authors: authors });

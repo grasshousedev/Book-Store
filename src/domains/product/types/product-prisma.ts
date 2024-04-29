@@ -1,5 +1,5 @@
 import { Product, Book, Author, Page } from "@prisma/client";
 
-export type BookPrisma = Book & { authors: Author[] };
+export type BookWithAuthorsPrisma = Book & { authors: Author[] };
 
-export type ProductPrisma = Product & { book: BookPrisma | null, page: Page };
+export type ProductWithPageAndBookPrisma = Product & { book: BookWithAuthorsPrisma | null, page: Page };

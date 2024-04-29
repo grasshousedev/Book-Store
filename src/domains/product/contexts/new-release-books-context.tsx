@@ -3,7 +3,7 @@
 import { createContext, useContext, ReactNode, useState } from "react";
 import { NewReleaseBooksType } from "../types/new-release-books-type";
 import { NewReleaseBooksContextType } from "../types/new-release-books-context-type";
-import { ProductPrisma } from "../types/product-prisma";
+import { ProductWithPageAndBookPrisma } from "../types/product-prisma";
 
 const initialState: NewReleaseBooksType = {
   books: [],
@@ -17,7 +17,7 @@ export function NewReleaseBooksProvider({
   books,
   children,
 }: {
-  books: ProductPrisma[];
+  books: ProductWithPageAndBookPrisma[];
   children: ReactNode;
 }) {
   const [state, setState] = useState({ ...initialState, books: books });
