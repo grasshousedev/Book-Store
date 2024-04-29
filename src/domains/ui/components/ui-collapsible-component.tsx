@@ -14,7 +14,7 @@ export function UiCollapsibleComponent({ shouldCloseWhenOutside, theHeader, theC
   const [isOpen, setIsOpen] = useState(false);
 
   const ref = useOutsideClick(() => {
-    if(props.shouldCloseWhenOutside){
+    if(shouldCloseWhenOutside){
       setIsOpen(false);
     }
   });
