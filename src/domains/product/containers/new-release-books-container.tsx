@@ -11,6 +11,7 @@ export async function NewReleaseBooksContainer() {
           authors: true,
         },
       },
+      page: true,
     },
     take: 5,
     orderBy: {
