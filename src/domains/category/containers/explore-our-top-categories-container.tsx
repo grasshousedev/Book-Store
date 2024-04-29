@@ -8,7 +8,6 @@ export async function ExploreOurTopCategoriesContainer() {
     include: {
       page: true,
     },
-    take: 5,
   });
 
   return (

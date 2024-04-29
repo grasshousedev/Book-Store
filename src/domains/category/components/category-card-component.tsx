@@ -4,7 +4,7 @@ import { CategoryLinkComponent } from "./category-link-component";
 
 export function CategoryCardComponent({ category }: { category: CategoryPrisma }) {
   return (
-    <div className="bg-red-50 p-5 w-[227px] h-[400px] flex-none text-sm text-pretty">
+    <div className="bg-red-50 p-5 w-[227px] h-[361px] flex-none text-sm text-pretty">
       <CategoryLinkComponent category={category}>
         <div className="bg-gray-500 w-[187px] h-[249px]"></div>
       </CategoryLinkComponent>
