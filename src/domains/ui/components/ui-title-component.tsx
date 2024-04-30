@@ -16,20 +16,20 @@ export function UiTitleComponent({
   children,
   ...props
 }: UiTitleComponentInterface) {
-  let headingClasses = 'font-primary';
+  let headingClasses = 'font-primary text-pretty';
 
   switch (size) {
     case 'small':
       headingClasses += ' text-2xl';
       break;
     case 'medium':
-      headingClasses += ' text-4xl';
+      headingClasses += ' text-3xl';
       break;
     case 'large':
-        headingClasses += ' text-6xl';
+        headingClasses += ' text-4xl sm:text-5xl md:text-6xl lg:text-7xl';
         break;
     default:
-      headingClasses += ' text-8xl';
+      headingClasses += ' text-5xl sm:text-6xl md:text-7xl lg:text-8xl';
       break;
   }
 

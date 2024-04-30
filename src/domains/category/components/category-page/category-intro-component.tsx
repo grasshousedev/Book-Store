@@ -7,8 +7,8 @@ export function CategoryIntroComponent() {
   const category = useCategoryPageContext().state.category;
   return (
     <div className="p-10">
-      <UiTitleComponent>{category.name}</UiTitleComponent>
-      <p>{category.description}</p>
+      <UiTitleComponent size="large">{category.name}</UiTitleComponent>
+      <p className="mt-4">{category.description}</p>
     </div>
   );
 }

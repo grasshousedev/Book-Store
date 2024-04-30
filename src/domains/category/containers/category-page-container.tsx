@@ -1,11 +1,8 @@
-import { AllCategoriesComponent } from "../components/category-page/all-categories-component";
-import { CategoryIntroComponent } from "../components/category-page/category-intro-component";
-import { CategoryProductsComponent } from "../components/category-page/category-products-component";
 import { CategoryPageProvider } from "../contexts/category-page-context";
 import prisma from "@/lib/db";
-import { CategoryWithPageAndProductsPrisma, CategoryWithPagePrisma } from "../types/category-prisma";
+import { CategoryWithPageAndProductsPrisma } from "../types/category-prisma";
 import { notFound } from "next/navigation";
-import { UiWrapperComponent } from "@/domains/ui/components/ui-wrapper-component";
+import { CategoryPageComponent } from "../components//category-page/category-page-component";
 
 export async function CategoryPageContainer({ slug }: { slug: string }) {
   try {
@@ -25,23 +22,15 @@ export async function CategoryPageContainer({ slug }: { slug: string }) {
                   authors: true,
                 },
               },
-              page: true
-            }
-          }
+              page: true,
+            },
+          },
         },
       });
-      
+
     return (
       <CategoryPageProvider category={JSON.parse(JSON.stringify(category))}>
-        <UiWrapperComponent className="flex">
-          <aside>
-            <AllCategoriesComponent />
-          </aside>
-          <main>
-            <CategoryIntroComponent />
-            <CategoryProductsComponent />
-          </main>
-        </UiWrapperComponent>
+        <CategoryPageComponent />
       </CategoryPageProvider>
     );
   } catch (error) {
