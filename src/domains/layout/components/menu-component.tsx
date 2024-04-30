@@ -15,9 +15,7 @@ export function MenuComponent() {
   return (
     <nav className={`${showMenuMobileClass} lg:block bg-green-200`}>
       <ul className="flex flex-col lg:flex-row justify-center divide-y lg:divide-y-0 lg:divide-x">
-        <MenuItemComponent href="/about-us" title="About Us">
-          About Us
-        </MenuItemComponent>
+        <MenuItemComponent href="/about-us" title="About Us" />
         <MenuItemComponent title="Books">
           <UiCollapsibleComponent
             shouldCloseWhenOutside={true}
@@ -29,23 +27,15 @@ export function MenuComponent() {
                     key={category.id}
                     href={getCategoryUrl(category)}
                     title={category.name}
-                  >
-                    {category.name}
-                  </MenuItemComponent>
+                  />
                 ))}
               </ul>
             }
           />
         </MenuItemComponent>
-        <MenuItemComponent href="/new-release" title="New Release">
-          New Release
-        </MenuItemComponent>
-        <MenuItemComponent href="/contact-us" title="Contact Us">
-          Contact Us
-        </MenuItemComponent>
-        <MenuItemComponent href="/blog" title="Blog">
-          Blog
-        </MenuItemComponent>
+        <MenuItemComponent href="/new-release" title="New Release" />
+        <MenuItemComponent href="/contact-us" title="Contact Us" />
+        <MenuItemComponent href="/blog" title="Blog" />
       </ul>
     </nav>
   );
