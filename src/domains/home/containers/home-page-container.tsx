@@ -6,7 +6,6 @@ import { NewReleaseBooksContainer } from "@/domains/product/containers/new-relea
 import { SubscribeToOurNewsletterContainer } from "@/domains/newsletter/containers/subscribe-to-our-newsletter-container";
 import { TheEmmanuelsBlogContainer } from "@/domains/blog/containers/the-emmanuels-blog-container";
 
-
 export function HomePageContainer() {
   return (
     <UiWrapperComponent>

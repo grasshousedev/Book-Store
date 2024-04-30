@@ -1,26 +1,19 @@
 "use client";
 
 import { createContext, useContext, ReactNode, useState } from "react";
-import { CategoryPageType } from "../types/category-page-type";
 import { CategoryPageContextType } from "../types/category-page-context-type";
-import { CategoryWithPageAndProductsOrNullPrisma } from "../types/category-prisma";
+import { CategoryWithPageAndProductsPrisma } from "../types/category-prisma";
 
-const initialState: CategoryPageType = {
-  category: null,
-};
-
-const CategoryPageContext = createContext<CategoryPageContextType>({
-  state: initialState,
-});
+const CategoryPageContext = createContext<CategoryPageContextType>({} as CategoryPageContextType);
 
 export function CategoryPageProvider({
   category,
   children,
 }: {
-  category: CategoryWithPageAndProductsOrNullPrisma;
+  category: CategoryWithPageAndProductsPrisma;
   children: ReactNode;
 }) {
-  const [state, setState] = useState({ ...initialState, category: category });
+  const [state, setState] = useState({ category: category });
 
   return (
     <CategoryPageContext.Provider value={{ state }}>

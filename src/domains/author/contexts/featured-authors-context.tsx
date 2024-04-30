@@ -1,17 +1,10 @@
 "use client";
 
 import { createContext, useContext, ReactNode, useState } from "react";
-import { FeaturedAuthorsType } from "../types/featured-authors-type";
 import { FeaturedAuthorsContextType } from "../types/featured-authors-context-type";
 import { AuthorWithPagePrisma } from "../types/author-prisma";
 
-const initialState: FeaturedAuthorsType = {
-  authors: [],
-};
-
-const FeaturedAuthorsContext = createContext<FeaturedAuthorsContextType>({
-  state: initialState,
-});
+const FeaturedAuthorsContext = createContext<FeaturedAuthorsContextType>({} as FeaturedAuthorsContextType);
 
 export function FeaturedAuthorsProvider({
   authors,
@@ -20,7 +13,7 @@ export function FeaturedAuthorsProvider({
   authors: AuthorWithPagePrisma[];
   children: ReactNode;
 }) {
-  const [state, setState] = useState({ ...initialState, authors: authors });
+  const [state, setState] = useState({ authors: authors });
 
   return (
     <FeaturedAuthorsContext.Provider value={{ state }}>

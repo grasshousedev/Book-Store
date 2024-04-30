@@ -1,17 +1,13 @@
 "use client";
 
 import { createContext, useContext, ReactNode, useState } from "react";
-import { ExploreOurTopCategoriesType } from "../types/explore-our-top-categories-type";
 import { ExploreOurTopCategoriesContextType } from "../types/explore-our-top-categories-context-type";
 import { CategoryWithPagePrisma } from "../types/category-prisma";
 
-const initialState: ExploreOurTopCategoriesType = {
-  categories: [],
-};
-
-const ExploreOurTopCategoriesContext = createContext<ExploreOurTopCategoriesContextType>({
-  state: initialState,
-});
+const ExploreOurTopCategoriesContext =
+  createContext<ExploreOurTopCategoriesContextType>(
+    {} as ExploreOurTopCategoriesContextType
+  );
 
 export function ExploreOurTopCategoriesProvider({
   categories,
@@ -20,7 +16,7 @@ export function ExploreOurTopCategoriesProvider({
   categories: CategoryWithPagePrisma[];
   children: ReactNode;
 }) {
-  const [state, setState] = useState({ ...initialState, categories: categories });
+  const [state, setState] = useState({ categories: categories });
 
   return (
     <ExploreOurTopCategoriesContext.Provider value={{ state }}>

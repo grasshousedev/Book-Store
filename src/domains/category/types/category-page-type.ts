@@ -1,6 +1,5 @@
-import { CategoryWithPageAndProductsOrNullPrisma } from "./category-prisma"
-
+import { CategoryWithPageAndProductsPrisma } from "./category-prisma";
 
 export type CategoryPageType = {
-  category: CategoryWithPageAndProductsOrNullPrisma
-}
+  category: CategoryWithPageAndProductsPrisma;
+};
