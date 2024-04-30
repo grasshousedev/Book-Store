@@ -11,12 +11,8 @@ import {
   cmsPages,
 } from "../data/seed";
 import { PageType } from "../src/const/page";
-
-function truncate(text: string, maxLength: number) {
-  return text.length > maxLength - 3
-    ? text.substring(0, maxLength - 3) + "..."
-    : text;
-}
+import { getSlug } from "@/helpers/getSlug";
+import { truncate } from "@/helpers/truncate";
 
 function getMetaTitle(pageType: PageType, text: string | string[]): string {
   if (pageType === PageType.CATEGORY) {
@@ -40,14 +36,6 @@ function getMetaTitle(pageType: PageType, text: string | string[]): string {
 
 function getMetaDescription(pageType: PageType, text: string): string {
   return truncate(text, 160);
-}
-
-function getSlug(text: string): string {
-  return text
-    .replaceAll(/[^(a-z\s)]/gi, "")
-    .split(" ")
-    .join("-")
-    .toLowerCase();
 }
 
 function createPage(pageType: PageType, title: string, description: string) {

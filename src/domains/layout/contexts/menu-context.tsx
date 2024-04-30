@@ -5,11 +5,9 @@ import { MenuType } from "../types/menu-type";
 import { MenuActionType } from "../types/menu-action-type";
 import { MenuActionTypes } from "../enums/menu-action-types";
 import { MenuContextType } from "../types/menu-context-type";
-import { Category } from "@prisma/client";
 
 const initialState: MenuType = {
   isOpen: false,
-  categories: [],
 };
 
 const MenuContext = createContext<MenuContextType>({
@@ -26,17 +24,8 @@ function menuReducer(menu: MenuType, action: MenuActionType) {
   }
 }
 
-export function MenuProvider({
-  children,
-  categories,
-}: {
-  children: ReactNode;
-  categories: Category[];
-}) {
-  const [state, dispatch] = useReducer(menuReducer, {
-    ...initialState,
-    categories: categories,
-  });
+export function MenuProvider({ children }: { children: ReactNode }) {
+  const [state, dispatch] = useReducer(menuReducer, initialState);
 
   return (
     <MenuContext.Provider value={{ state, dispatch }}>

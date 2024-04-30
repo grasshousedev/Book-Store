@@ -17,12 +17,12 @@ export function HeaderComponent() {
           <UiSearchComponent />
         </div>
         <div className="flex items-start divide-x">
-          <a href='' className='flex items-center gap-2 pr-3'>
+          <Link href='/account' className='flex items-center gap-2 pr-3'>
             <UserIcon /> <span>Account</span>
-          </a>
-          <a href='' className='flex items-center gap-2 pl-3 pr-3 lg:pr-0'>
+          </Link>
+          <Link href='/cart' className='flex items-center gap-2 pl-3 pr-3 lg:pr-0'>
             <ShoppingBagIcon /> <span>Cart</span>
-          </a>
+          </Link>
           <MenuCtaComponent />
         </div>
       </div>

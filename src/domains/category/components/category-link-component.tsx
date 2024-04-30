@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { CategoryWithPagePrisma } from "../types/category-prisma";
 import Link from "next/link";
+import { getCategoryUrl } from "../helpers/getCategoryUrl";
 
 export function CategoryLinkComponent({
   category,
@@ -9,7 +10,7 @@ export function CategoryLinkComponent({
   category: CategoryWithPagePrisma;
   children: ReactNode;
 }) {
-  const link = `/category/${category.page.slug}`;
+  const link = getCategoryUrl(category);
   return (
     <Link href={link} title={category.name}>
       {children}

@@ -7,7 +7,7 @@ import {
 import { UiWrapperComponent } from "@/ui-wrapper-component";
 import { UiTitleComponent } from "@/ui-title-component";
 import { FooterItemComponent } from "./footer-item-component";
-
+import Link from "next/link";
 
 export function FooterComponent() {
   return (
@@ -22,28 +22,36 @@ export function FooterComponent() {
         </p>
         <ul className="flex gap-2">
           <li>
-            <a href="" title="Emmanuel's Book Store Facebook" target="_blank">
+            <Link
+              href=""
+              title="Emmanuel's Book Store Facebook"
+              target="_blank"
+            >
               <FacebookIcon />
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="" title="Emmanuel's Book Store LinkedIn" target="_blank">
+            <Link
+              href=""
+              title="Emmanuel's Book Store LinkedIn"
+              target="_blank"
+            >
               <LinkedinIcon />
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="" title="Emmanuel's Book Store X" target="_blank">
+            <Link href="" title="Emmanuel's Book Store X" target="_blank">
               <TwitterIcon />
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href=""
               title="Emmanuel's Book Store Youtube Channel"
               target="_blank"
             >
               <YoutubeIcon />
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -59,11 +67,11 @@ export function FooterComponent() {
           </UiTitleComponent>
           <nav aria-labelledby="footer-help" className="lg:py-2">
             <ul className="bg-green-200 lg:bg-transparent divide-y lg:divide-y-0">
-              <FooterItemComponent title="Contact Us">Contact Us</FooterItemComponent>
-              <FooterItemComponent title="Guarantee">Guarantee</FooterItemComponent>
-              <FooterItemComponent title="Shipping">Shipping</FooterItemComponent>
-              <FooterItemComponent title="Privacy">Privacy</FooterItemComponent>
-              <FooterItemComponent title="Terms">Terms</FooterItemComponent>
+              <FooterItemComponent title="Contact Us" />
+              <FooterItemComponent title="Guarantee" />
+              <FooterItemComponent title="Shipping" />
+              <FooterItemComponent title="Privacy" />
+              <FooterItemComponent title="Terms" />
             </ul>
           </nav>
         </div>
@@ -78,12 +86,12 @@ export function FooterComponent() {
           </UiTitleComponent>
           <nav aria-labelledby="footer-explore" className="lg:py-2">
             <ul className="bg-green-200 lg:bg-transparent divide-y lg:divide-y-0">
-              <FooterItemComponent title="Featured Authors">Featured Authors</FooterItemComponent>
-              <FooterItemComponent title="New Release Books">New Release Books</FooterItemComponent>
-              <FooterItemComponent title="Top Categories">Top Categories</FooterItemComponent>
-              <FooterItemComponent title="Latest Blog Articles">Latest Blog Articles</FooterItemComponent>
-              <FooterItemComponent title="Publishers">Publishers</FooterItemComponent>
-              <FooterItemComponent title="About Us">About Us</FooterItemComponent>
+              <FooterItemComponent title="Featured Authors" />
+              <FooterItemComponent title="New Release Books" />
+              <FooterItemComponent title="Top Categories" />
+              <FooterItemComponent title="Latest Blog Articles" />
+              <FooterItemComponent title="Publishers" />
+              <FooterItemComponent title="About Us" />
             </ul>
           </nav>
         </div>

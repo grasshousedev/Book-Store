@@ -1,5 +1,6 @@
-import { Category, Page, Product } from "@prisma/client";
+import { ProductWithPageAndBookPrisma } from "@/domains/product/types/product-prisma";
+import { Category, Page } from "@prisma/client";
 
 export type CategoryWithPagePrisma = Category & { page: Page };
 
-export type CategoryWithPageAndProductsPrisma = Category & { page: Page } & { products: Product[] };
+export type CategoryWithPageAndProductsPrisma = Category & { page: Page } & { products: ProductWithPageAndBookPrisma[] };
