@@ -13,10 +13,20 @@ model Page {
   title       String     @db.VarChar(60)
   description String     @db.VarChar(160)
   slug        String     @db.VarChar(108)
+  type        String     @db.VarChar(60)
   product     Product?
   category    Category?
   author      Author?
   publisher   Publisher?
+  cmsPage     CmsPage?
+}
+
+model CmsPage {
+  id      Int    @id @default(autoincrement())
+  title   String @db.VarChar(100)
+  content String
+  page    Page   @relation(fields: [pageId], references: [id])
+  pageId  Int    @unique
 }
 
 model Product {

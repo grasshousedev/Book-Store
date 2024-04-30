@@ -1,7 +1,41 @@
 import { Prisma } from "@prisma/client";
 import { faker } from "@faker-js/faker";
 
-const categories = [
+const cmsPagesRaw = [
+  { title: "Home" },
+  { title: "Contact Us" },
+  { title: "Guarantee" },
+  { title: "Shipping" },
+  { title: "Privacy" },
+  { title: "Terms" },
+  { title: "Featured Authors" },
+  { title: "New Release Books" },
+  { title: "Top Categories" },
+  { title: "Latest Blog Articles" },
+  { title: "Publishers" },
+  { title: "About Us" },
+  { title: "Blog" },
+];
+
+export type CmsPage = {
+  title: string;
+  description: string;
+  content: string;
+};
+
+let rowsCmsPages: CmsPage[] = [];
+for (let i = 0; i < cmsPagesRaw.length; i++) {
+  let cmsPage = cmsPagesRaw[i];
+  rowsCmsPages.push({
+    title: cmsPage.title,
+    description: faker.lorem.paragraph(),
+    content: faker.lorem.paragraphs(3),
+  });
+}
+
+export const cmsPages: CmsPage[] = rowsCmsPages;
+
+const categoriesRaw = [
   {
     name: "Arts and Entertainment",
     books: [
@@ -751,10 +785,10 @@ export type Category = {
   products: Product[];
 };
 
-let rows: Category[] = [];
-for (let i = 0; i < categories.length; i++) {
-  let category = categories[i];
-  rows.push({
+let rowsCategories: Category[] = [];
+for (let i = 0; i < categoriesRaw.length; i++) {
+  let category = categoriesRaw[i];
+  rowsCategories.push({
     name: category.name,
     description: faker.lorem.paragraph(),
     products: category.books.map((book) => {
@@ -779,4 +813,4 @@ for (let i = 0; i < categories.length; i++) {
   });
 }
 
-export const data: Category[] = rows;
+export const categories: Category[] = rowsCategories;

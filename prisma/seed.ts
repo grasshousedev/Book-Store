@@ -1,6 +1,15 @@
 import { PrismaClient, Prisma } from "@prisma/client";
 const prisma = new PrismaClient();
-import { Author, Book, Category, Product, Publisher, data } from "../data/seed";
+import {
+  Author,
+  Book,
+  Category,
+  CmsPage,
+  Product,
+  Publisher,
+  categories,
+  cmsPages,
+} from "../data/seed";
 import { PageType } from "../src/const/page";
 
 function truncate(text: string, maxLength: number) {
@@ -33,7 +42,7 @@ function getMetaDescription(pageType: PageType, text: string): string {
   return truncate(text, 160);
 }
 
-function getSlug(pageType: PageType, text: string): string {
+function getSlug(text: string): string {
   return text
     .replaceAll(/[^(a-z\s)]/gi, "")
     .split(" ")
@@ -46,8 +55,17 @@ function createPage(pageType: PageType, title: string, description: string) {
     create: {
       title: getMetaTitle(pageType, title),
       description: getMetaDescription(pageType, description),
-      slug: getSlug(pageType, title),
+      slug: getSlug(title),
+      type: pageType,
     },
+  };
+}
+
+function createCmsPage(cmsPage: CmsPage) {
+  return {
+    title: cmsPage.title,
+    content: cmsPage.content,
+    page: createPage(PageType.CMS_PAGE, cmsPage.title, cmsPage.description),
   };
 }
 
@@ -109,18 +127,28 @@ function createCategory(category: Category) {
 }
 
 async function main() {
-  
   // Delete all records
   await prisma.book.deleteMany();
   await prisma.publisher.deleteMany();
   await prisma.author.deleteMany();
   await prisma.product.deleteMany();
   await prisma.category.deleteMany();
+  await prisma.cmsPage.deleteMany();
   await prisma.page.deleteMany();
 
   // Insert records from /data/seed.ts
-  for (let i = 0; i < data.length; i++) {
-    let category = data[i];
+
+  // Insert CMS Pages
+  for (let i = 0; i < cmsPages.length; i++) {
+    let cmsPage = cmsPages[i];
+    await prisma.cmsPage.create({
+      data: createCmsPage(cmsPage),
+    });
+  }
+
+  // Insert Categories, Products...
+  for (let i = 0; i < categories.length; i++) {
+    let category = categories[i];
     await prisma.category.create({
       data: createCategory(category),
     });
