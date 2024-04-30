@@ -2,7 +2,7 @@
 
 import { createContext, useContext, ReactNode, useState } from "react";
 import { CategoryPageContextType } from "../types/category-page-context-type";
-import { CategoryWithPageAndProductsPrisma } from "../types/category-prisma";
+import { CategoryWithPageAndProductsPrisma, CategoryWithPagePrisma } from "../types/category-prisma";
 
 const CategoryPageContext = createContext<CategoryPageContextType>({} as CategoryPageContextType);
 
