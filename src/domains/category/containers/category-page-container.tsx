@@ -2,7 +2,7 @@ import { CategoryPageProvider } from "../contexts/category-page-context";
 import prisma from "@/lib/db";
 import { CategoryWithPageAndProductsPrisma } from "../types/category-prisma";
 import { notFound } from "next/navigation";
-import { CategoryPageComponent } from "../components//category-page/category-page-component";
+import { CategoryPageComponent } from "../components/category-page/category-page-component";
 
 export async function CategoryPageContainer({ slug }: { slug: string }) {
   try {
