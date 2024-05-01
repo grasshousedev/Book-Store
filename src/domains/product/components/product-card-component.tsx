@@ -1,7 +1,7 @@
 import { UiTitleComponent } from "@/domains/ui/components/ui-title-component";
 import { ProductWithPageAndBookPrisma } from "../types/product-prisma";
 import { ProductLinkComponent } from "./product-link-component";
-import { useBookAuthors } from "../helpers/useBookAuthors";
+import { getAuthorsByProduct } from "../helpers/get-authors-by-product";
 
 export function ProductCardComponent({ product }: { product: ProductWithPageAndBookPrisma }) {
   return (
@@ -14,7 +14,7 @@ export function ProductCardComponent({ product }: { product: ProductWithPageAndB
           {product.name}
         </ProductLinkComponent>
       </UiTitleComponent>
-      <span className="line-clamp-2">by {useBookAuthors(product)}</span>
+      <span className="line-clamp-2">by {getAuthorsByProduct(product)}</span>
     </div>
   );
 }

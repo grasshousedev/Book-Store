@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { CategoryWithPagePrisma } from "../types/category-prisma";
 import Link from "next/link";
-import { getCategoryUrl } from "../helpers/getCategoryUrl";
+import { getCategoryUrl } from "../helpers/get-category-url";
 
 export function CategoryLinkComponent({
   category,

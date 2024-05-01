@@ -11,7 +11,7 @@ import {
   cmsPages,
 } from "../data/seed";
 import { PageType } from "../src/const/page";
-import { getSlug } from "@/helpers/getSlug";
+import { getSlug } from "@/helpers/get-slug";
 import { truncate } from "@/helpers/truncate";
 
 function getMetaTitle(pageType: PageType, text: string | string[]): string {

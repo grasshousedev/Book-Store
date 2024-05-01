@@ -2,7 +2,7 @@
 
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { useState, ReactNode } from "react";
-import { useOutsideClick } from '../interactions/useOutsideClick';
+import { useOutsideClick } from '../helpers/use-outside-click';
 
 export interface UiCollapsibleComponentInterface extends React.ComponentProps<"div"> {
   shouldCloseWhenOutside: boolean;

@@ -1,5 +1,5 @@
 import { ProductWithPageAndBookPrisma } from "../types/product-prisma";
 
-export function useBookAuthors(product: ProductWithPageAndBookPrisma) {
+export function getAuthorsByProduct(product: ProductWithPageAndBookPrisma) {
   return product.book?.authors.map((author) => author.name).join(" and ");
 }

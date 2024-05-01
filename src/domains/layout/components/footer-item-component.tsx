@@ -1,4 +1,4 @@
-import { getSlug } from "@/helpers/getSlug";
+import { getSlug } from "@/helpers/get-slug";
 import Link from "next/link";
 import { ReactNode } from "react";
 

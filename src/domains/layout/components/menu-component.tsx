@@ -3,7 +3,7 @@ import { UiCollapsibleComponent } from "@/ui-collapsible-component";
 import { MenuItemComponent } from "./menu-item-component";
 import { useMenuContext } from "../contexts/menu-context";
 import { useLayoutContext } from "@/domains/layout/contexts/layout-context";
-import { getCategoryUrl } from "@/domains/category/helpers/getCategoryUrl";
+import { getCategoryUrl } from "@/domains/category/helpers/get-category-url";
 
 export function MenuComponent() {
   const menuState = useMenuContext().state;
