@@ -1,4 +1,4 @@
-import { UserIcon, ShoppingBagIcon } from 'lucide-react';
+import { UserIcon, ShoppingCartIcon } from 'lucide-react';
 import { EmmanuelsBookStoreImage } from "@/assets/images/emmanuels-book-store-image";
 import { UiWrapperComponent } from "@/ui-wrapper-component";
 import { UiSearchComponent } from "@/ui-search-component";
@@ -21,7 +21,7 @@ export function HeaderComponent() {
             <UserIcon /> <span>Account</span>
           </Link>
           <Link href='/cart' className='flex items-center gap-2 pl-3 pr-3 lg:pr-0'>
-            <ShoppingBagIcon /> <span>Cart</span>
+            <ShoppingCartIcon /> <span>Cart</span>
           </Link>
           <MenuCtaComponent />
         </div>
