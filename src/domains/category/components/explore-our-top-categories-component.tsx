@@ -7,7 +7,7 @@ import { useLayoutContext } from "@/domains/layout/contexts/layout-context";
 export function ExploreOurTopCategoriesComponent() {
   const categories = useLayoutContext().state.categories;
   return (
-    <section className="p-10 bg-green-50 text-center">
+    <section className="p-10 text-center">
       <UiTitleComponent level="h2" size="large">Explore Our Top Categories</UiTitleComponent>
       <div className="flex flex-wrap justify-center gap-5">
         {categories.map((category) => (

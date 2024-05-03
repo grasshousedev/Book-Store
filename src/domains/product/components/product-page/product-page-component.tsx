@@ -2,7 +2,6 @@
 
 import { AllCategoriesComponent } from "@/domains/category/components/category-page/all-categories-component";
 import { ProductIntroComponent } from "./product-intro-component";
-import { UiWrapperComponent } from "@/domains/ui/components/ui-wrapper-component";
 import { AddToCartComponent } from "./add-to-cart-component";
 import { ProductDetailsComponent } from "./product-details-component";
 import { useProductPageContext } from "../../contexts/product-page-context";
@@ -14,7 +13,7 @@ export function ProductPageComponent() {
   const product: ProductWithBookAndCategoriesPrisma =
     useProductPageContext().state.product;
   return (
-    <UiWrapperComponent className="flex">
+    <div className="flex">
       <aside className="min-w-[258px] hidden lg:block">
         <AllCategoriesComponent />
       </aside>
@@ -33,6 +32,6 @@ export function ProductPageComponent() {
           <ProductsFromCategoryComponent key={category.id} category={category} className="mt-4" />
         ))}
       </main>
-    </UiWrapperComponent>
+    </div>
   );
 }

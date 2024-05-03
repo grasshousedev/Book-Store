@@ -7,7 +7,7 @@ import { ProductListingComponent } from "./product-listing-component";
 export function NewReleaseBooksComponent() {
   const books = useNewReleaseBooksContext().state.books;
   return (
-    <section className="p-10 bg-green-50 text-center">
+    <section className="p-10 text-center">
       <UiTitleComponent level="h2" size="large">New Release Books</UiTitleComponent>
       <ProductListingComponent products={books} />
     </section>

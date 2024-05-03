@@ -13,6 +13,7 @@ export function MenuItemComponent({
   children,
   ...props
 }: MenuItemProps) {
+  props.className = "bg-green-400 hover:bg-green-300 " + props.className;
   return (
     <li {...props}>
       {href ? (

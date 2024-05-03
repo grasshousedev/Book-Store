@@ -5,7 +5,7 @@ import { UiWrapperComponent } from "@/domains/ui/components/ui-wrapper-component
 
 export function CategoryPageComponent() {
   return (
-    <UiWrapperComponent className="flex">
+    <div className="flex">
       <aside className="min-w-[258px] hidden lg:block">
         <AllCategoriesComponent />
       </aside>
@@ -13,6 +13,6 @@ export function CategoryPageComponent() {
         <CategoryIntroComponent />
         <CategoryProductsComponent />
       </main>
-    </UiWrapperComponent>
+    </div>
   );
 }

@@ -13,8 +13,8 @@ export function MenuComponent() {
   const categories = layoutState.categories;
 
   return (
-    <nav className={`${showMenuMobileClass} lg:block bg-green-200`}>
-      <ul className="flex flex-col lg:flex-row justify-center divide-y lg:divide-y-0 lg:divide-x">
+    <nav className={`${showMenuMobileClass} lg:block mb-10`}>
+      <ul className="flex flex-col lg:flex-row justify-center divide-y lg:divide-y-0 lg:rounded-lg lg:w-fit mx-auto overflow-hidden">
         <MenuItemComponent href="/about-us" title="About Us" />
         <MenuItemComponent title="Books">
           <UiCollapsibleComponent

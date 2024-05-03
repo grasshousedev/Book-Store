@@ -5,7 +5,7 @@ export interface UiWrapperComponentInterface extends React.ComponentProps<"div">
 }
 
 export function UiWrapperComponent({ children, ...props }: UiWrapperComponentInterface) {
-  let divClasses = "w-full xl:w-[1280px] 2xl:w-[1536px] mx-auto";
+  let divClasses = "w-full mx-auto xl:max-w-screen-xl 2xl:max-w-screen-2xl";
   props.className = props.className
     ? divClasses + " " + props.className
     : divClasses;
