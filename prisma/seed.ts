@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 import {
   Author,
@@ -11,12 +11,12 @@ import {
   cmsPages,
 } from "../data/seed";
 import { PageType } from "../src/const/page";
-import { getSlug } from "@/helpers/get-slug";
-import { truncate } from "@/helpers/truncate";
+import { getSlug } from "../src/helpers/get-slug";
+import { truncate } from "../src/helpers/truncate";
 
 function getMetaTitle(pageType: PageType, text: string | string[]): string {
   if (pageType === PageType.CATEGORY) {
-    return `Books ${text}`;
+    return `${text} Books`;
   }
   if (pageType === PageType.AUTHOR) {
     if (Array.isArray(text)) {

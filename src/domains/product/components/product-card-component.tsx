@@ -2,10 +2,15 @@ import { UiTitleComponent } from "@/domains/ui/components/ui-title-component";
 import { ProductWithPageAndBookPrisma } from "../types/product-prisma";
 import { ProductLinkComponent } from "./product-link-component";
 import { getAuthorsByProduct } from "../helpers/get-authors-by-product";
+import { ProductListItemComponent } from "./product-list-item-component";
 
-export function ProductCardComponent({ product }: { product: ProductWithPageAndBookPrisma }) {
+export function ProductCardComponent({
+  product,
+}: {
+  product: ProductWithPageAndBookPrisma;
+}) {
   return (
-    <div className="bg-red-50 p-5 w-[227px] h-[400px] flex-none text-sm text-pretty">
+    <ProductListItemComponent>
       <ProductLinkComponent product={product}>
         <div className="bg-gray-500 w-[187px] h-[249px]"></div>
       </ProductLinkComponent>
@@ -15,6 +20,6 @@ export function ProductCardComponent({ product }: { product: ProductWithPageAndB
         </ProductLinkComponent>
       </UiTitleComponent>
       <span className="line-clamp-2">by {getAuthorsByProduct(product)}</span>
-    </div>
+    </ProductListItemComponent>
   );
 }

@@ -34,7 +34,7 @@ model Product {
   name        String     @db.VarChar(100)
   categories  Category[]
   description String
-  price       Decimal
+  price       Decimal    @db.Decimal(10,2)
   isbn        String
   book        Book?
   cartItems   CartItem[]

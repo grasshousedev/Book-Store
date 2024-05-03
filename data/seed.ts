@@ -795,7 +795,7 @@ for (let i = 0; i < categoriesRaw.length; i++) {
       return {
         name: book.name,
         description: faker.lorem.paragraph(),
-        price: new Prisma.Decimal(faker.commerce.price({ min: 20, max: 100 })),
+        price: new Prisma.Decimal(faker.commerce.price({ min: 20, max: 1000 })),
         isbn: faker.commerce.isbn(),
         book: {
           authors: book.authors.map((author) => {
