@@ -4,6 +4,7 @@ export function ProductListItemComponent({
   children,
   ...props
 }: React.ComponentProps<"div">) {
-  props.className = "bg-red-50 p-5 w-[227px] h-[400px] flex-none text-sm text-pretty " + props.className;
+  let divClasses = "bg-red-50 p-5 w-[227px] h-[400px] text-sm text-pretty";
+  props.className = props.className ? `${divClasses} ${props.className}` : divClasses;
   return <div {...props}>{children}</div>;
 }

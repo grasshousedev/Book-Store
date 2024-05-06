@@ -7,9 +7,9 @@ import { ProductListingComponent } from "./product-listing-component";
 export function NewReleaseBooksComponent() {
   const books = useNewReleaseBooksContext().state.books;
   return (
-    <section className="p-10 text-center">
+    <section className="p-10">
       <UiTitleComponent level="h2" size="large">New Release Books</UiTitleComponent>
-      <ProductListingComponent products={books} />
+      <ProductListingComponent products={books} className="" />
     </section>
   );
 }
