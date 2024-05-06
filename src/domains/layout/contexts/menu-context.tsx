@@ -17,7 +17,7 @@ const MenuContext = createContext<MenuContextType>({
 
 function menuReducer(menu: MenuType, action: MenuActionType) {
   switch (action.type) {
-    case MenuActionTypes.Changed_IsOpen:
+    case MenuActionTypes.CHANGED_IS_OPEN:
       return { ...menu, isOpen: !menu.isOpen };
     default:
       throw Error("Unknown action: " + action.type);

@@ -5,6 +5,8 @@ import { UiSearchComponent } from "@/ui-search-component";
 import { MenuComponent } from "./menu-component";
 import { MenuCtaComponent } from "./menu-cta-component";
 import Link from "next/link";
+import { CartCtaComponent } from "@/domains/cart/components/cart-cta-component";
+
 
 export function HeaderComponent() {
   return (
@@ -21,12 +23,7 @@ export function HeaderComponent() {
             <Link href="/account" className="flex items-center gap-2 pr-3">
               <UserIcon /> <span>Account</span>
             </Link>
-            <Link
-              href="/cart"
-              className="flex items-center gap-2 pl-3 pr-3 lg:pr-0"
-            >
-              <ShoppingCartIcon /> <span>Cart</span>
-            </Link>
+            <CartCtaComponent />
             <MenuCtaComponent />
           </div>
         </div>

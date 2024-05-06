@@ -15,7 +15,7 @@ export function MenuCtaComponent({ ...props }: MenuCtaProps) {
     <button
       {...props}
       onClick={() => {
-        menuDispatch({ type: MenuActionTypes.Changed_IsOpen });
+        menuDispatch({ type: MenuActionTypes.CHANGED_IS_OPEN });
       }}
     >
       {menuState.isOpen ? <XIcon /> : <MenuIcon />} <span>Menu</span>

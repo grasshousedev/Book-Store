@@ -3,6 +3,7 @@ import { faker } from "@faker-js/faker";
 
 const cmsPagesRaw = [
   { title: "Home" },
+  { title: "Cart" },
   { title: "Contact Us" },
   { title: "Guarantee" },
   { title: "Shipping" },

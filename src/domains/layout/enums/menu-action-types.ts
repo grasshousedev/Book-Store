@@ -1,3 +1,3 @@
 export enum MenuActionTypes {
-  Changed_IsOpen = "changed_isOpen",  
+  CHANGED_IS_OPEN = "changed_is_open",  
 };
