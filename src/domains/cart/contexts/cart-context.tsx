@@ -60,12 +60,16 @@ function cartReducer(cart: CartType, action: CartActionType) {
     case CartActionTypes.DECREASE_CART_ITEM_QUANTITY:
       return {
         ...cart,
-        items: cart.items.map((item) => {
-          if (item.id === action.payload.id) {
-            return { ...item, quantity: item.quantity - 1 };
-          }
-          return item;
-        }),
+        items: cart.items
+          .filter((item) => {
+            return item.quantity > 1;
+          })
+          .map((item) => {
+            if (item.id === action.payload.id) {
+              return { ...item, quantity: item.quantity - 1 };
+            }
+            return item;
+          }),
       };
     default:
       throw Error("Unknown action: " + action.type);
@@ -73,9 +77,12 @@ function cartReducer(cart: CartType, action: CartActionType) {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [localState, setLocalState] = useLocalStorage<CartType>("cart", initialState);
+  const [localState, setLocalState] = useLocalStorage<CartType>(
+    "cart",
+    initialState
+  );
   const [state, dispatch] = useReducer(cartReducer, localState);
-  
+
   useEffect(() => {
     setLocalState(state);
   }, [state, setLocalState]);
