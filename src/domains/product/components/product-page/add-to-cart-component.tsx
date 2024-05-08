@@ -28,7 +28,7 @@ export function AddToCartComponent({ ...props }: React.ComponentProps<"div">) {
         >
           ADD TO CART
         </UiButtonComponent>
-        <span className="bg-green-50 p-2">Ships in 1 to 3 days</span>
+        <span className="bg-green-100 p-2 text-sm text-green-900">Ships in 1 to 3 days</span>
       </div>
     </div>
   );

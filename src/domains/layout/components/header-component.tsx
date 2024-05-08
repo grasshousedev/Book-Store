@@ -1,4 +1,4 @@
-import { UserIcon, ShoppingCartIcon } from "lucide-react";
+import { UserIcon } from "lucide-react";
 import { EmmanuelsBookStoreImage } from "@/assets/images/emmanuels-book-store-image";
 import { UiWrapperComponent } from "@/ui-wrapper-component";
 import { UiSearchComponent } from "@/ui-search-component";
