@@ -62,7 +62,7 @@ function cartReducer(cart: CartType, action: CartActionType) {
         ...cart,
         items: cart.items
           .filter((item) => {
-            return item.quantity > 1;
+            return item.quantity > 1 || item.id != action.payload.id;
           })
           .map((item) => {
             if (item.id === action.payload.id) {
