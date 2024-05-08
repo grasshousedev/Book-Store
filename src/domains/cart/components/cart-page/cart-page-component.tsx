@@ -17,7 +17,7 @@ export function CartPageComponent() {
   return (
     isClient && (
       <div className="flex flex-col-reverse lg:flex-row">
-        <main className="grow">
+        <main className="basis-2/3">
           <div className="p-10">
             <UiTitleComponent size="large">Shopping Cart</UiTitleComponent>
             <p className="text-sm p-2 my-2 border bg-green-100 text-green-900 flex gap-2 items-center">
@@ -39,7 +39,7 @@ export function CartPageComponent() {
             </span>
           </div>
         </main>
-        <aside className="min-w-[258px]">
+        <aside className="basis-1/3">
           <div className="p-10">
             <span className="block">
               Subtotal ({cartItemsQty} product{cartItemsQty > 1 ? "s" : ""}):{" "}
