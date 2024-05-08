@@ -14,7 +14,7 @@ export function CartCtaComponent() {
 
   return (
     <Link href="/cart" className="flex items-center gap-2 pl-3 pr-3 lg:pr-0">
-      {isClient ? <span className="asd absolute -mt-[27px] ml-[6px] w-[16px] text-center">{cartItemsQty}</span> : null}
+      {isClient && cartItemsQty > 0 ? <span className="asd absolute -mt-[27px] ml-[6px] w-[16px] text-center">{cartItemsQty}</span> : null}
       <ShoppingCartIcon />
       <span>Cart</span>
     </Link>
