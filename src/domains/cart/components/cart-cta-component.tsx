@@ -5,11 +5,8 @@ import Link from "next/link";
 import { useIsClient } from "usehooks-ts";
 
 export function CartCtaComponent() {
-  const cartState = useCartContext().state;
-  const cartItems = cartState.items;
-  const cartItemsQty = cartItems.reduce((acc, cur) => {
-    return acc + cur.quantity;
-  }, 0);
+  const cartContext = useCartContext();
+  const cartItemsQty = cartContext.getCartItemsQty();
   const isClient = useIsClient();
 
   return (

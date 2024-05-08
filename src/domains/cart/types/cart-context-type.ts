@@ -5,4 +5,6 @@ import { CartActionType } from "./cart-action-type";
 export type CartContextType = {
   state: CartType;
   dispatch: Dispatch<CartActionType>;
+  getCartItemsQty: Function;
+  cartItemsSubtotal: Function;
 };

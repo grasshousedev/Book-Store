@@ -20,6 +20,8 @@ const initialState: CartType = {
 const CartContext = createContext<CartContextType>({
   state: initialState,
   dispatch: () => {},
+  getCartItemsQty: () => {},
+  cartItemsSubtotal: () => {},
 });
 
 function cartReducer(cart: CartType, action: CartActionType) {
@@ -83,12 +85,28 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
   const [state, dispatch] = useReducer(cartReducer, localState);
 
+  function getCartItemsQty(): number {
+    const cartItems = state.items;
+    return cartItems.reduce((acc, cur) => {
+      return acc + cur.quantity;
+    }, 0);
+  }
+
+  function cartItemsSubtotal(): number {
+    const cartItems = state.items;
+    return cartItems.reduce((acc, cur) => {
+      return acc + 20 * cur.quantity;
+    }, 0);
+  }
+
   useEffect(() => {
     setLocalState(state);
   }, [state, setLocalState]);
 
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
+    <CartContext.Provider
+      value={{ state, dispatch, getCartItemsQty, cartItemsSubtotal }}
+    >
       {children}
     </CartContext.Provider>
   );

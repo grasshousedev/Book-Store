@@ -8,14 +8,10 @@ import { InfoIcon } from "lucide-react";
 import { CartItemComponent } from "./cart-item-component";
 
 export function CartPageComponent() {
-  const cartState = useCartContext().state;
-  const cartItems = cartState.items;
-  const cartItemsQty = cartItems.reduce((acc, cur) => {
-    return acc + cur.quantity;
-  }, 0);
-  const cartItemsSubtotal = cartItems.reduce((acc, cur) => {
-    return acc + 20 * cur.quantity;
-  }, 0);
+  const cartContext = useCartContext();
+  const cartItems = cartContext.state.items;
+  const cartItemsQty = cartContext.getCartItemsQty();
+  const cartItemsSubtotal = cartContext.cartItemsSubtotal();
   const isClient = useIsClient();
 
   return (
