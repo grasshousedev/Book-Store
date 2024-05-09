@@ -2,34 +2,22 @@
 import { UiPriceComponent } from "@/domains/ui/components/ui-price-component";
 import { UiButtonComponent } from "@/domains/ui/components/ui-button-component";
 import { CartItemType } from "../../types/cart-item-type";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { ProductWithPageAndBookPrisma } from "@/domains/product/types/product-prisma";
 import { ProductLinkComponent } from "@/domains/product/components/product-link-component";
 import { getAuthorsByProduct } from "@/domains/product/helpers/get-authors-by-product";
 import { UiLoaderComponent } from "@/domains/ui/components/ui-loader-component";
 import { MinusIcon, PlusIcon } from "lucide-react";
 import { useCartContext } from "../../contexts/cart-context";
 import { CartActionTypes } from "../../enums/cart-action-types";
-
-async function fetchProduct(id: number): Promise<ProductWithPageAndBookPrisma> {
-  const response = await axios.get(`/api/product/${id}`);
-  return response.data.product;
-}
+import { useProductByIdQuery } from "@/domains/product/queries/use-product-by-id-query";
 
 export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
   const cartDispatch = useCartContext().dispatch;
+  const { isLoading, data } = useProductByIdQuery(cartItem.id);
 
-  const response = useQuery({
-    queryKey: ["product", cartItem.id],
-    queryFn: () => fetchProduct(cartItem.id),
-  });
+  if (isLoading) return <UiLoaderComponent />;
+  if (!data) return null;
 
-  if (response.isLoading) return <UiLoaderComponent />;
-  if (response.isError) return null;
-  if (!response.data) return null;
-
-  const product = response.data;
+  const product = data;
 
   return (
     <li className="py-4 border-b grid grid-cols-[145px_calc(100%-145px-16px)] gap-4">

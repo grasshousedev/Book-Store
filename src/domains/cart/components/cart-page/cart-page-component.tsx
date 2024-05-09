@@ -8,11 +8,11 @@ import { InfoIcon } from "lucide-react";
 import { CartItemComponent } from "./cart-item-component";
 
 export function CartPageComponent() {
+  const isClient = useIsClient();
   const cartContext = useCartContext();
   const cartItems = cartContext.state.items;
   const cartItemsQty = cartContext.getCartItemsQty();
   const cartItemsSubtotal = cartContext.cartItemsSubtotal();
-  const isClient = useIsClient();
 
   return (
     isClient && (

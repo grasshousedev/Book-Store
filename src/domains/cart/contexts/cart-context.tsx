@@ -12,6 +12,7 @@ import { CartActionType } from "../types/cart-action-type";
 import { CartActionTypes } from "../enums/cart-action-types";
 import { CartContextType } from "../types/cart-context-type";
 import { useLocalStorage } from "usehooks-ts";
+import { useProductsByIdsQuery } from "@/domains/product/queries/use-products-by-ids-query";
 
 const initialState: CartType = {
   items: [],
@@ -84,6 +85,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
     initialState
   );
   const [state, dispatch] = useReducer(cartReducer, localState);
+  const cartItems = state.items;
+  const responses = useProductsByIdsQuery(cartItems.map((item) => item.id));
 
   function getCartItemsQty(): number {
     const cartItems = state.items;
@@ -93,10 +96,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   function cartItemsSubtotal(): number {
-    const cartItems = state.items;
-    return cartItems.reduce((acc, cur) => {
-      return acc + 20 * cur.quantity;
-    }, 0);
+    let subTotal = 0;
+    cartItems.forEach((item) => {
+      responses.some((response) => {
+        const product = response.data;
+        if (!product) {
+          return true;
+        }
+        if (item.id == product.id) {
+          subTotal += parseInt(product.price.toString()) * item.quantity;
+          return true;
+        }
+      });
+    });
+    return subTotal;
   }
 
   useEffect(() => {
