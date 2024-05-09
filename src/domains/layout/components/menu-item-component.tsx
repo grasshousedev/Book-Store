@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export interface MenuItemProps extends React.ComponentProps<"li"> {
   href?: string;
-  title: string;
+  title?: string;
   children?: ReactNode;
 }
 
@@ -13,7 +13,10 @@ export function MenuItemComponent({
   children,
   ...props
 }: MenuItemProps) {
-  props.className = "bg-primary-400 hover:bg-primary-300 " + props.className;
+  let liClasses = "bg-primary-400 hover:bg-primary-300";
+  props.className = props.className
+    ? `${liClasses} ${props.className}`
+    : liClasses;
   return (
     <li {...props}>
       {href ? (

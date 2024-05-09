@@ -5,18 +5,21 @@ import { useMenuContext } from "../contexts/menu-context";
 import { useLayoutContext } from "@/domains/layout/contexts/layout-context";
 import { getCategoryUrl } from "@/domains/category/helpers/get-category-url";
 
-export function MenuComponent() {
+export function MenuComponent({...props}: React.ComponentProps<"nav">) {
   const menuState = useMenuContext().state;
   const showMenuMobileClass = menuState.isOpen ? "" : "hidden";
 
   const layoutState = useLayoutContext().state;
   const categories = layoutState.categories;
 
+  let navClasses = `${showMenuMobileClass} lg:block`;
+  props.className = props.className ? `${navClasses} ${props.className}` : navClasses;
+
   return (
-    <nav className={`${showMenuMobileClass} lg:block mb-10`}>
+    <nav {...props}>
       <ul className="flex flex-col lg:flex-row justify-center divide-y lg:divide-y-0 lg:rounded-lg lg:w-fit mx-auto overflow-hidden">
         <MenuItemComponent href="/about-us" title="About Us" />
-        <MenuItemComponent title="Books">
+        <MenuItemComponent>
           <UiCollapsibleComponent
             shouldCloseWhenOutside={true}
             theHeader="Books"
@@ -33,7 +36,6 @@ export function MenuComponent() {
             }
           />
         </MenuItemComponent>
-        <MenuItemComponent href="/new-release" title="New Release" />
         <MenuItemComponent href="/contact-us" title="Contact Us" />
         <MenuItemComponent href="/blog" title="Blog" />
       </ul>
