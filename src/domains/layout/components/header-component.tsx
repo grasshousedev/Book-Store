@@ -10,7 +10,7 @@ import { CartCtaComponent } from "@/domains/cart/components/cart-cta-component";
 
 export function HeaderComponent() {
   return (
-    <div className="bg-green-500 pb-20">
+    <div className="bg-primary-500 pb-20">
       <UiWrapperComponent className="lg:text-xs lg:leading-none">
         <div className="flex flex-col lg:flex-row px-10 py-5 gap-4 lg:gap-20 items-center">
           <Link href="/">

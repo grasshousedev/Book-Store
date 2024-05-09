@@ -21,7 +21,7 @@ export function MenuComponent() {
             shouldCloseWhenOutside={true}
             theHeader="Books"
             theContent={
-              <ul className="bg-green-100 divide-y">
+              <ul className="bg-primary-100 divide-y">
                 {categories.map((category) => (
                   <MenuItemComponent
                     key={category.id}

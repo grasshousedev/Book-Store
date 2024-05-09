@@ -11,9 +11,9 @@ import Link from "next/link";
 
 export function FooterComponent() {
   return (
-    <div className="bg-green-900">
+    <div className="bg-primary-900">
       <UiWrapperComponent className="grid grid-cols-1 lg:grid-cols-3 -mt-20">
-        <div className="bg-green-400 p-10 xl:rounded-bl-lg">
+        <div className="bg-primary-400 p-10 xl:rounded-bl-lg">
           <UiTitleComponent level="h3" size="small">
             Stay Connected
           </UiTitleComponent>
@@ -56,7 +56,7 @@ export function FooterComponent() {
             </li>
           </ul>
         </div>
-        <div className="bg-green-300 col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 lg:pb-10 xl:rounded-br-lg">
+        <div className="bg-primary-300 col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 lg:pb-10 xl:rounded-br-lg">
           <div>
             <UiTitleComponent
               level="h3"
@@ -67,7 +67,7 @@ export function FooterComponent() {
               Help
             </UiTitleComponent>
             <nav aria-labelledby="footer-help" className="lg:py-2">
-              <ul className="bg-green-200 lg:bg-transparent divide-y lg:divide-y-0">
+              <ul className="bg-primary-200 lg:bg-transparent divide-y lg:divide-y-0">
                 <FooterItemComponent title="Contact Us" />
                 <FooterItemComponent title="Guarantee" />
                 <FooterItemComponent title="Shipping" />
@@ -86,7 +86,7 @@ export function FooterComponent() {
               Explore
             </UiTitleComponent>
             <nav aria-labelledby="footer-explore" className="lg:py-2">
-              <ul className="bg-green-200 lg:bg-transparent divide-y lg:divide-y-0">
+              <ul className="bg-primary-200 lg:bg-transparent divide-y lg:divide-y-0">
                 <FooterItemComponent title="Featured Authors" />
                 <FooterItemComponent title="New Release Books" />
                 <FooterItemComponent title="Top Categories" />
@@ -97,7 +97,7 @@ export function FooterComponent() {
             </nav>
           </div>
         </div>
-        <div className="col-span-1 lg:col-span-3 text-center p-10 text-green-600">
+        <div className="col-span-1 lg:col-span-3 text-center p-10 text-primary-600">
           © {new Date().getFullYear()} emmanuelsbookstore.com
         </div>
       </UiWrapperComponent>

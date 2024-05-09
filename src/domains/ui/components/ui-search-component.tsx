@@ -12,7 +12,7 @@ export function UiSearchComponent() {
 
   return (
     <form>
-      <label className="flex rounded-full bg-green-100 py-2 px-4">
+      <label className="flex rounded-full bg-primary-100 py-2 px-4">
         <input
           type="text"
           name="search"

@@ -22,7 +22,7 @@ export function CartPageComponent() {
             <UiTitleComponent size="large">Shopping Cart</UiTitleComponent>
             {cartItemsQty > 0 ? (
               <>
-                <p className="text-sm p-2 my-2 border bg-green-100 text-green-900 flex gap-2 items-center">
+                <p className="text-sm p-2 my-2 border bg-primary-100 text-primary-900 flex gap-2 items-center">
                   <InfoIcon className="shrink-0" />
                   Please verify that your shipping address and order details are
                   correct before placing your order. Orders shipping from partner
@@ -41,7 +41,7 @@ export function CartPageComponent() {
                 </span>
               </>
             ) : (
-              <p className="text-sm p-2 my-2 border bg-green-100 text-green-900 flex gap-2 items-center">
+              <p className="text-sm p-2 my-2 border bg-primary-100 text-primary-900 flex gap-2 items-center">
                 <InfoIcon className="shrink-0" />
                 There are no items in your shopping cart.
               </p>
@@ -59,11 +59,11 @@ export function CartPageComponent() {
                 <Link
                   href="checkout"
                   title="Checkout"
-                  className="bg-green-900 font-bold p-4 text-green-100 block text-center mt-2 uppercase"
+                  className="bg-primary-900 font-bold p-4 text-primary-100 block text-center mt-2 uppercase"
                 >
                   Checkout
                 </Link>
-                <span className="bg-green-100 p-2 block text-sm text-green-900 text-center mt-2">
+                <span className="bg-primary-100 p-2 block text-sm text-primary-900 text-center mt-2">
                   Ship these for free.
                 </span>
               </>
@@ -71,7 +71,7 @@ export function CartPageComponent() {
             <Link
               href="checkout"
               title="Continue Shopping"
-              className="bg-green-100 font-bold p-4 text-green-900 block text-center mt-2 text-sm"
+              className="bg-primary-100 font-bold p-4 text-primary-900 block text-center mt-2 text-sm"
             >
               Continue Shopping
             </Link>

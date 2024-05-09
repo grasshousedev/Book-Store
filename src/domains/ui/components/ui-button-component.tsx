@@ -9,7 +9,7 @@ export function UiButtonComponent({
   children,
   ...props
 }: UiButtonComponentInterface) {
-  let buttonClasses = "bg-green-900 font-bold p-4 text-green-100";
+  let buttonClasses = "bg-primary-900 font-bold p-4 text-primary-100";
   props.className = props.className
     ? buttonClasses + " " + props.className
     : buttonClasses;

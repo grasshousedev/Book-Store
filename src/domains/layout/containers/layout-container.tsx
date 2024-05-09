@@ -17,7 +17,7 @@ export async function LayoutContainer({ children }: { children: ReactNode }) {
     <LayoutProvider categories={categories}>
       <div className="min-h-dvh flex flex-col">
         <HeaderContainer />
-        <UiWrapperComponent className="bg-green-50 xl:rounded-t-lg grow -mt-20 mb-20">
+        <UiWrapperComponent className="bg-primary-50 xl:rounded-t-lg grow -mt-20 mb-20">
           {children}
         </UiWrapperComponent>
         <FooterContainer />

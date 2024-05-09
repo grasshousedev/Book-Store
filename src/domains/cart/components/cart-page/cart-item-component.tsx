@@ -48,7 +48,7 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
         >
           remove
         </UiButtonComponent>
-        <div className="border-y border-green-900 flex gap-2 items-center">
+        <div className="border-y border-primary-900 flex gap-2 items-center">
           <UiButtonComponent
             className="text-sm p-1.5"
             onClick={() => {
