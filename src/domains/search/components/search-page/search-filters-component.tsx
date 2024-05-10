@@ -6,6 +6,7 @@ import { UiButtonComponent } from "@/domains/ui/components/ui-button-component";
 import { UiCollapsibleComponent } from "@/domains/ui/components/ui-collapsible-component";
 import { UiTitleComponent } from "@/domains/ui/components/ui-title-component";
 import React, { useState } from "react";
+import { RadioGroup, Radio } from "@nextui-org/radio";
 
 export function SearchFiltersComponent() {
   const layoutState = useLayoutContext().state;
@@ -26,6 +27,8 @@ export function SearchFiltersComponent() {
 
   const visibilityFilterClasses = isFilterOpened ? "" : "hidden";
   const visibilityOrderByClasses = isOrderByOpened ? "" : "hidden";
+
+  const [orderBySelected, setOrderBySelected] = React.useState("title");
 
   return (
     <div className="">
@@ -101,16 +104,19 @@ export function SearchFiltersComponent() {
           <UiCollapsibleComponent
             shouldCloseWhenOutside={true}
             theHeader="Order by"
-            theContent={
-              <ul className="bg-primary-100 divide-y">
-                {categories.map((category) => (
-                  <MenuItemComponent key={category.id} title={category.name} />
-                ))}
-              </ul>
-            }
+            theContent={<></>}
           />
         </MenuItemComponent>
       </ul>
+      <RadioGroup
+        label="Order by"
+        value={orderBySelected}
+        onValueChange={setOrderBySelected}
+      >
+        <Radio value="title">Title</Radio>
+        <Radio value="price">Price</Radio>
+      </RadioGroup>
+      {orderBySelected}
     </div>
   );
 }
