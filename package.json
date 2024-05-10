@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mui/base": "^5.0.0-beta.40",
     "@prisma/client": "^5.12.1",
     "@tanstack/react-query": "^5.35.1",
     "@tanstack/react-query-devtools": "^5.35.1",
