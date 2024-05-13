@@ -1,11 +1,11 @@
 import { UserIcon } from "lucide-react";
 import { EmmanuelsBookStoreImage } from "@/assets/images/emmanuels-book-store-image";
 import { UiWrapperComponent } from "@/ui-wrapper-component";
-import { UiSearchComponent } from "@/ui-search-component";
 import { MenuComponent } from "./menu-component";
 import { MenuCtaComponent } from "./menu-cta-component";
 import Link from "next/link";
 import { CartCtaComponent } from "@/domains/cart/components/cart-cta-component";
+import { InputSearchComponent } from "@/domains/search/components/input-search-component";
 
 export function HeaderComponent() {
   return (
@@ -27,7 +27,7 @@ export function HeaderComponent() {
           </div>
         </div>
         <div className="pb-4 px-4 lg:w-2/3 mx-auto">
-          <UiSearchComponent />
+          <InputSearchComponent />
         </div>
       </UiWrapperComponent>
     </div>

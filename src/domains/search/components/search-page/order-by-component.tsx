@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Divider, RadioGroup, Radio, cn } from "@nextui-org/react";
+import { OrderByTypes } from "../../enums/order-by-types";
 
 export function OrderByComponent() {
   const [orderBySelected, setOrderBySelected] = useState("title");
@@ -16,7 +17,7 @@ export function OrderByComponent() {
       }}
     >
       <Radio
-        value="title"
+        value={OrderByTypes.TITLE}
         classNames={{
           label: cn("py-4"),
         }}
@@ -25,7 +26,7 @@ export function OrderByComponent() {
       </Radio>
       <Divider />
       <Radio
-        value="price"
+        value={OrderByTypes.PRICE}
         classNames={{
           label: cn("py-4"),
         }}
