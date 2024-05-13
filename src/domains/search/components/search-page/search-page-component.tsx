@@ -3,7 +3,8 @@ import { ProductListingComponent } from "@/domains/product/components/product-li
 import { UiTitleComponent } from "@/domains/ui/components/ui-title-component";
 import prisma from "@/lib/db";
 import React from "react";
-import { SearchFiltersComponent } from "./search-filters-component";
+import { SearchFiltersMobileComponent } from "./search-filters-mobile-component";
+import { SearchFiltersDesktopComponent } from "./search-filters-desktop-component";
 
 export async function SearchPageComponent() {
   const category: CategoryWithPageAndProductsPrisma =
@@ -31,7 +32,8 @@ export async function SearchPageComponent() {
   return (
     <div className="flex flex-col lg:flex-row">
       <aside className="basis-1/4">
-        <SearchFiltersComponent />
+        <SearchFiltersMobileComponent />
+        <SearchFiltersDesktopComponent />
       </aside>
       <main className="basis-3/4">
         <div className="p-10">
