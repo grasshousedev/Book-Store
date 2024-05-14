@@ -12,7 +12,15 @@ const SearchContext = createContext<SearchContextType>({} as SearchContextType);
 function searchReducer(search: SearchType, action: SearchActionType) {
   switch (action.type) {
     case SearchActionTypes.UPDATED_KEYWORD:
-      return { ...search, keyword: action.payload.keyword, orderby: null };
+      return {
+        ...search,
+        keyword: action.payload.keyword,
+        orderby: null,
+        minprice: null,
+        maxprice: null,
+        minyear: null,
+        maxyear: null,
+      };
     case SearchActionTypes.UPDATED_ORDERBY:
       return { ...search, orderby: action.payload.orderby };
     case SearchActionTypes.UPDATED_CATEGORIES:
@@ -38,7 +46,7 @@ export function SearchProvider({ children }: { children: ReactNode }) {
   const searchParams = useSearchParams();
   const keyword = searchParams.get("keyword") ?? "";
   const categories = searchParams.getAll("categories");
-  
+
   const minPriceFromUrl = searchParams.get("minprice");
   const minprice = minPriceFromUrl === null ? null : parseInt(minPriceFromUrl);
 
@@ -50,7 +58,7 @@ export function SearchProvider({ children }: { children: ReactNode }) {
 
   const maxYearFromUrl = searchParams.get("maxyear");
   const maxyear = maxYearFromUrl === null ? null : parseInt(maxYearFromUrl);
-  
+
   const orderby = searchParams.get("orderby");
 
   const initialStateBySearchParams = {
