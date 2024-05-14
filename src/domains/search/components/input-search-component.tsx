@@ -4,21 +4,20 @@ import { Input } from "@nextui-org/react";
 import { SearchIcon } from "lucide-react";
 import { SearchActionTypes } from "../enums/search-action-types";
 import { useSearchContext } from "../contexts/search-context";
-import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
+import { useCustomRouter } from "@/helpers/use-custom-router";
 
 export function InputSearchComponent() {
   const keyword = useSearchContext().state.keyword;
   const searchDispatch = useSearchContext().dispatch;
-  const router = useRouter();
+  const customRouter = useCustomRouter();
 
   function handleChangeValue(value: string) {
     searchDispatch({
       type: SearchActionTypes.UPDATED_KEYWORD,
       payload: { keyword: value },
     });
-    const keywordParam = value == "" ? "" : `?keyword=${value}`;
-    router.push(`/search${keywordParam}`);
+    customRouter.push("keyword", value, "/search", true);
   }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {

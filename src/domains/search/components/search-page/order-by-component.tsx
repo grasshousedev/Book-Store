@@ -1,16 +1,28 @@
 "use client";
 
-import { useState } from "react";
 import { Divider, RadioGroup, Radio, cn } from "@nextui-org/react";
 import { OrderByTypes } from "../../enums/order-by-types";
+import { SearchActionTypes } from "../../enums/search-action-types";
+import { useSearchContext } from "../../contexts/search-context";
+import { useCustomRouter } from "@/helpers/use-custom-router";
 
 export function OrderByComponent() {
-  const [orderBySelected, setOrderBySelected] = useState("title");
+  const orderby = useSearchContext().state.orderby;
+  const searchDispatch = useSearchContext().dispatch;
+  const customRouter = useCustomRouter();
+
+  function handleChangeOrderBy(value: string) {
+    searchDispatch({
+      type: SearchActionTypes.UPDATED_ORDERBY,
+      payload: { orderby: value },
+    });
+    customRouter.push("orderby", value);
+  }
 
   return (
     <RadioGroup
-      value={orderBySelected}
-      onValueChange={setOrderBySelected}
+      value={orderby}
+      onValueChange={handleChangeOrderBy}
       size="lg"
       classNames={{
         wrapper: cn("gap-0"),

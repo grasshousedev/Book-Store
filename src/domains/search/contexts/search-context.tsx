@@ -12,7 +12,9 @@ const SearchContext = createContext<SearchContextType>({} as SearchContextType);
 function searchReducer(search: SearchType, action: SearchActionType) {
   switch (action.type) {
     case SearchActionTypes.UPDATED_KEYWORD:
-      return { ...search, keyword: action.payload.keyword };
+      return { ...search, keyword: action.payload.keyword, orderby: null };
+    case SearchActionTypes.UPDATED_ORDERBY:
+      return { ...search, orderby: action.payload.orderby };
     default:
       throw Error("Unknown action: " + action.type);
   }
