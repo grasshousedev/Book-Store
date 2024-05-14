@@ -1,15 +1,28 @@
 "use client";
 
-import { useState } from "react";
 import { Slider } from "@nextui-org/react";
+import { SearchActionTypes } from "../../enums/search-action-types";
+import { useSearchContext } from "../../contexts/search-context";
+import { useCustomRouter } from "@/helpers/use-custom-router";
 
 export function FilterByPriceComponent() {
   const MIN_PRICE = 20;
   const MAX_PRICE = 1000;
-  const [priceRangeSelected, setPriceRangeSelected] = useState([
-    MIN_PRICE,
-    MAX_PRICE,
-  ]);
+  const minPriceSelected = useSearchContext().state.minprice ?? MIN_PRICE;
+  const maxPriceSelected = useSearchContext().state.maxprice ?? MAX_PRICE;
+  const searchDispatch = useSearchContext().dispatch;
+  const customRouter = useCustomRouter();
+
+  function handleChangePriceRange(values: number[]) {
+    searchDispatch({
+      type: SearchActionTypes.UPDATED_PRICE,
+      payload: { minprice: values[0], maxprice: values[1] },
+    });
+    customRouter.push(
+      ["minprice", "maxprice"],
+      values.map((value) => value.toString())
+    );
+  }
 
   return (
     <div className="flex flex-col gap-2 w-full h-full max-w-md items-start justify-center overflow-hidden">
@@ -19,9 +32,9 @@ export function FilterByPriceComponent() {
         step={10}
         minValue={MIN_PRICE}
         maxValue={MAX_PRICE}
-        value={priceRangeSelected}
+        value={[minPriceSelected, maxPriceSelected]}
         onChange={(value) =>
-          setPriceRangeSelected(Array.isArray(value) ? value : [value])
+          handleChangePriceRange(Array.isArray(value) ? value : [value])
         }
         className="max-w-md"
       />

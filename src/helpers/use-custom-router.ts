@@ -7,7 +7,7 @@ export function useCustomRouter() {
   const pathFromRouter = usePathname();
   const searchParams = useSearchParams();
   function push(
-    name: string,
+    name: string | string[],
     value: string | string[],
     pathname?: string,
     replaceQueryString?: boolean
@@ -16,13 +16,23 @@ export function useCustomRouter() {
     const params = new URLSearchParams(
       replaceQueryString ? "" : searchParams.toString()
     );
-    params.delete(name);
-    if (value != "") {
-      const values = Array.isArray(value) ? value : [value];
-      values.map((v) => {
-        params.append(name, v);
+
+    if (Array.isArray(name)) {
+      const names = name;
+      names.map((n, i) => {
+        params.delete(n);
+        params.append(n, value[i]);
       });
+    } else {
+      params.delete(name);
+      if (value != "") {
+        const values = Array.isArray(value) ? value : [value];
+        values.map((v) => {
+          params.append(name, v);
+        });
+      }
     }
+
     router.push(`${finalPath}?${params.toString()}`);
   }
   return { push: push };
