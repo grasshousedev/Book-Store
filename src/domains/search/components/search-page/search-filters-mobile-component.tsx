@@ -11,7 +11,7 @@ import { ArrowDownNarrowWideIcon } from "lucide-react";
 
 export function SearchFiltersMobileComponent() {
   return (
-    <div className="p-4 lg:hidden">
+    <div className="px-4 lg:hidden bg-primary-100">
       <UiTitleComponent
         size="small"
         level="h2"
@@ -36,7 +36,7 @@ export function SearchFiltersMobileComponent() {
             </UiTitleComponent>
           }
         >
-          <Tabs aria-label="Search Options" size="lg" fullWidth={true}>
+          <Tabs aria-label="Search Options" size="lg" fullWidth={true} color="primary">
             <Tab
               key="filter"
               title={
