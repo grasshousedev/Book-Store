@@ -1,20 +1,25 @@
 import { SearchPageContainer } from "@/domains/search/containers/search-page-container";
+import { SearchParamsType } from "@/types/search-params-type";
 import { Metadata } from "next";
-
-type Props = {
-  searchParams: { [key: string]: string | string[] | undefined };
-};
 
 export async function generateMetadata({
   searchParams,
-}: Props): Promise<Metadata> {
-  const keyword = searchParams["keyword"];
+}: {
+  searchParams: SearchParamsType;
+}): Promise<Metadata> {
+  const keyword = searchParams["keyword"]
+    ? ` for ${searchParams["keyword"]}`
+    : "";
 
   return {
-    title: `Search Results for ${keyword}`,
+    title: `Search Results${keyword}`,
   };
 }
 
-export default function Search() {
-  return <SearchPageContainer />;
+export default function Search({
+  searchParams,
+}: {
+  searchParams: SearchParamsType;
+}) {
+  return <SearchPageContainer searchParams={searchParams} />;
 }
