@@ -33,7 +33,7 @@ export function useCustomRouter() {
       }
     }
 
-    router.push(`${finalPath}?${params.toString()}`);
+    router.push(`${finalPath}?${params.toString()}`, { scroll: false });
   }
   return { push: push };
 }

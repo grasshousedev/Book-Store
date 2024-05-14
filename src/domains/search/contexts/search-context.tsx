@@ -15,11 +15,12 @@ function searchReducer(search: SearchType, action: SearchActionType) {
       return {
         ...search,
         keyword: action.payload.keyword,
-        orderby: null,
+        categories: null,
         minprice: null,
         maxprice: null,
         minyear: null,
         maxyear: null,
+        orderby: null,
       };
     case SearchActionTypes.UPDATED_ORDERBY:
       return { ...search, orderby: action.payload.orderby };

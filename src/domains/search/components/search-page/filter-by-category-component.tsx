@@ -10,7 +10,9 @@ import { useLayoutContext } from "@/domains/layout/contexts/layout-context";
 export function FilterByCategoryComponent() {
   const layoutState = useLayoutContext().state;
   const categories = layoutState.categories;
-  const categoriesSelected = useSearchContext().state.categories ?? undefined;
+
+  const categoriesSelected = useSearchContext().state.categories ?? [""];
+
   const searchDispatch = useSearchContext().dispatch;
   const customRouter = useCustomRouter();
 
