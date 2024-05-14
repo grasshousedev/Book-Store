@@ -1,23 +1,31 @@
 "use client";
 
+import { Fragment } from "react";
+import { Divider, CheckboxGroup, Checkbox, cn } from "@nextui-org/react";
+import { SearchActionTypes } from "../../enums/search-action-types";
+import { useSearchContext } from "../../contexts/search-context";
+import { useCustomRouter } from "@/helpers/use-custom-router";
 import { useLayoutContext } from "@/domains/layout/contexts/layout-context";
-import { Fragment, useState } from "react";
-import {
-  Divider,
-  CheckboxGroup,
-  Checkbox,
-  cn,
-} from "@nextui-org/react";
 
 export function FilterByCategoryComponent() {
   const layoutState = useLayoutContext().state;
   const categories = layoutState.categories;
-  const [categoriesSelected, setCategoriesSelected] = useState([""]);
+  const categoriesSelected = useSearchContext().state.categories ?? undefined;
+  const searchDispatch = useSearchContext().dispatch;
+  const customRouter = useCustomRouter();
+
+  function handleChangeCategories(values: string[]) {
+    searchDispatch({
+      type: SearchActionTypes.UPDATED_CATEGORIES,
+      payload: { categories: values },
+    });
+    customRouter.push("categories", values);
+  }
 
   return (
     <CheckboxGroup
       value={categoriesSelected}
-      onValueChange={setCategoriesSelected}
+      onValueChange={handleChangeCategories}
       size="lg"
       classNames={{
         wrapper: cn("gap-0"),

@@ -15,6 +15,12 @@ function searchReducer(search: SearchType, action: SearchActionType) {
       return { ...search, keyword: action.payload.keyword, orderby: null };
     case SearchActionTypes.UPDATED_ORDERBY:
       return { ...search, orderby: action.payload.orderby };
+    case SearchActionTypes.UPDATED_CATEGORIES:
+      return { ...search, categories: action.payload.categories };
+    case SearchActionTypes.UPDATED_PRICE:
+      return { ...search, minprice: action.payload.minprice, maxprice: action.payload.maxprice };
+    case SearchActionTypes.UPDATED_YEAR:
+      return { ...search, minyear: action.payload.minyear, maxyear: action.payload.maxyear };
     default:
       throw Error("Unknown action: " + action.type);
   }
