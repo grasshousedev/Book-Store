@@ -21,7 +21,7 @@ function searchReducer(search: SearchType, action: SearchActionType) {
         maxprice: null,
         minyear: null,
         maxyear: null,
-        orderby: null,
+        orderby: OrderByTypes.TITLE,
       };
     case SearchActionTypes.UPDATED_ORDERBY:
       return { ...search, orderby: action.payload.orderby };
