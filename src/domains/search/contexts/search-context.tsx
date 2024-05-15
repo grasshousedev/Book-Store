@@ -6,6 +6,7 @@ import { SearchActionType } from "../types/search-action-type";
 import { SearchActionTypes } from "../enums/search-action-types";
 import { SearchContextType } from "../types/search-context-type";
 import { useSearchParams } from "next/navigation";
+import { OrderByTypes } from "../enums/order-by-types";
 
 const SearchContext = createContext<SearchContextType>({} as SearchContextType);
 
@@ -60,7 +61,7 @@ export function SearchProvider({ children }: { children: ReactNode }) {
   const maxYearFromUrl = searchParams.get("maxyear");
   const maxyear = maxYearFromUrl === null ? null : parseInt(maxYearFromUrl);
 
-  const orderby = searchParams.get("orderby");
+  const orderby = searchParams.get("orderby") ?? OrderByTypes.TITLE;
 
   const initialStateBySearchParams = {
     keyword: keyword,
