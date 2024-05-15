@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import { ChevronDownIcon, ChevronLeft } from "lucide-react";
 import { useState, ReactNode } from "react";
 import { useOutsideClick } from '../helpers/use-outside-click';
 
@@ -27,13 +27,13 @@ export function UiCollapsibleComponent({ shouldCloseWhenOutside, theHeader, theC
     }
   }
 
-  const contentClasses = isOpen ? "lg:absolute" : "hidden";
+  const contentClasses = isOpen ? "lg:absolute lg:z-[100]" : "hidden";
 
   return (
-    <div {...props} ref={ref}>
-      <div className="flex cursor-pointer gap-2 py-4 px-10" onClick={swapIsOpen}>
+    <div {...props} ref={ref} onClick={swapIsOpen}>
+      <div className="flex cursor-pointer gap-2 p-4 lg:px-10 lg:py-2 items-center">
         <span className="grow">{theHeader}</span>
-        {isOpen ? <ChevronUpIcon className="size-6 lg:size-4" /> : <ChevronDownIcon className="size-6 lg:size-4" />}
+        {isOpen ? <ChevronDownIcon className="size-4" /> : <ChevronLeft className="size-4" />}
       </div>
       <div className={contentClasses}>{theContent}</div>
     </div>
