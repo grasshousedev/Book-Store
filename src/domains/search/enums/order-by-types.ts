@@ -1,6 +1,6 @@
 export enum OrderByTypes {
-  TITLE = "title",
+  TITLE = "name",
   PRICE = "price",
 }
 
-export type OrderByType = "title" | "price" | null;
+export type OrderByType = "name" | "price" | null;

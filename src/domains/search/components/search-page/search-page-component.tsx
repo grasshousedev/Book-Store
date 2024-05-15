@@ -107,8 +107,25 @@ export async function SearchPageComponent({
         }
       : {};
 
+  const orderByQuery =
+    orderBy !== null
+      ? {
+          [orderBy]: Prisma.SortOrder.asc,
+        }
+      : {
+          name: Prisma.SortOrder.asc,
+        };
+
   const products: ProductWithPageAndBookPrisma[] =
     await prisma.product.findMany({
+      include: {
+        book: {
+          include: {
+            authors: true,
+          },
+        },
+        page: true,
+      },
       where: {
         AND: [
           keywordFilter,
@@ -120,14 +137,7 @@ export async function SearchPageComponent({
         ],
       },
       take: 500,
-      include: {
-        book: {
-          include: {
-            authors: true,
-          },
-        },
-        page: true,
-      },
+      orderBy: orderByQuery,
     });
 
   return (
@@ -138,7 +148,7 @@ export async function SearchPageComponent({
       </aside>
       <main className="basis-3/4">
         <SearchTitleComponent />
-        <div className="p-10">
+        <div className="p-10 pt-0">
           <ProductListingComponent products={products} />
         </div>
       </main>
