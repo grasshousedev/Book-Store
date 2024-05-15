@@ -8,27 +8,27 @@ import { OrderByComponent } from "./order-by-component";
 
 export function SearchFiltersDesktopComponent() {
   return (
-    <div className="p-6 hidden lg:block">
-      <div className="pt-10">
-        <UiTitleComponent size="medium" level="h2">
+    <div className="p-6 lg:p-10 hidden lg:block">
+      <div>
+        <UiTitleComponent size="small" level="h2">
           Filter by Category
         </UiTitleComponent>
         <FilterByCategoryComponent />
       </div>
       <div className="pt-10">
-        <UiTitleComponent size="medium" level="h2">
+        <UiTitleComponent size="small" level="h2">
           Filter by Price
         </UiTitleComponent>
         <FilterByPriceComponent />
       </div>
       <div className="pt-10">
-        <UiTitleComponent size="medium" level="h2">
+        <UiTitleComponent size="small" level="h2">
           Filter by Publication Year
         </UiTitleComponent>
         <FilterByYearComponent />
       </div>
       <div className="pt-10">
-        <UiTitleComponent size="medium" level="h2">
+        <UiTitleComponent size="small" level="h2">
           Order by
         </UiTitleComponent>
         <OrderByComponent />

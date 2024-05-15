@@ -28,6 +28,7 @@ export function FilterByYearComponent() {
     <div className="flex flex-col gap-2 w-full h-full max-w-md items-start justify-center overflow-hidden">
       <Slider
         label=" "
+        size="sm"
         formatOptions={{ useGrouping: false }}
         step={1}
         minValue={MIN_YEAR}

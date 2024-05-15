@@ -13,11 +13,11 @@ export function ProductPageComponent() {
   const product: ProductWithBookAndCategoriesPrisma =
     useProductPageContext().state.product;
   return (
-    <div className="flex">
-      <aside className="min-w-[258px] hidden lg:block">
+    <div className="flex flex-row">
+      <aside className="basis-1/4 hidden lg:block">
         <AllCategoriesComponent />
       </aside>
-      <main className="grow p-10">
+      <main className="basis-3/4 grow p-10">
         <div className="lg:flex">
           <div className="lg:basis-2/3">
             <ProductIntroComponent />

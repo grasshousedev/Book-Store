@@ -28,7 +28,7 @@ export function FilterByCategoryComponent() {
     <CheckboxGroup
       value={categoriesSelected}
       onValueChange={handleChangeCategories}
-      size="lg"
+      size="sm"
       classNames={{
         wrapper: cn("gap-0"),
       }}
@@ -39,7 +39,7 @@ export function FilterByCategoryComponent() {
           <Checkbox
             value={category.page.slug}
             classNames={{
-              label: cn("py-4"),
+              label: cn("py-2"),
             }}
           >
             {category.name}

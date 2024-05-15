@@ -23,7 +23,7 @@ export function OrderByComponent() {
     <RadioGroup
       value={orderby}
       onValueChange={handleChangeOrderBy}
-      size="lg"
+      size="sm"
       classNames={{
         wrapper: cn("gap-0"),
       }}
@@ -31,7 +31,7 @@ export function OrderByComponent() {
       <Radio
         value={OrderByTypes.TITLE}
         classNames={{
-          label: cn("py-4"),
+          label: cn("py-2"),
         }}
       >
         Title
@@ -40,7 +40,7 @@ export function OrderByComponent() {
       <Radio
         value={OrderByTypes.PRICE}
         classNames={{
-          label: cn("py-4"),
+          label: cn("py-2"),
         }}
       >
         Price

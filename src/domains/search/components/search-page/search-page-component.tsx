@@ -146,7 +146,7 @@ export async function SearchPageComponent({
         <SearchFiltersMobileComponent />
         <SearchFiltersDesktopComponent />
       </aside>
-      <main className="basis-3/4">
+      <main className="basis-3/4 grow">
         <SearchTitleComponent />
         <div className="p-10 pt-0">
           <ProductListingComponent products={products} />
