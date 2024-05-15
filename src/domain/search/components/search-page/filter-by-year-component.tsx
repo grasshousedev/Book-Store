@@ -4,10 +4,9 @@ import { Slider } from "@nextui-org/react";
 import { SearchActionTypes } from "../../enums/search-action-types";
 import { useSearchContext } from "../../contexts/search-context";
 import { useCustomRouter } from "@/helpers/use-custom-router";
+import { MAX_YEAR, MIN_YEAR } from "@/const/global";
 
 export function FilterByYearComponent() {
-  const MIN_YEAR = 1990;
-  const MAX_YEAR = new Date().getFullYear();
   const minYearSelected = useSearchContext().state.minyear ?? MIN_YEAR;
   const maxYearSelected = useSearchContext().state.maxyear ?? MAX_YEAR;
   const searchDispatch = useSearchContext().dispatch;

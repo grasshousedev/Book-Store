@@ -1,5 +1,6 @@
 import { Prisma } from "@prisma/client";
 import { faker } from "@faker-js/faker";
+import { MAX_PAGES, MAX_PRICE, MAX_YEAR, MIN_PAGES, MIN_PRICE, MIN_YEAR } from "../src/const/global";
 
 const cmsPagesRaw = [
   { title: "Home" },
@@ -805,7 +806,7 @@ for (let i = 0; i < categoriesRaw.length; i++) {
       return {
         name: book.name,
         description: faker.lorem.paragraph(),
-        price: new Prisma.Decimal(faker.commerce.price({ min: 20, max: 1000 })),
+        price: new Prisma.Decimal(faker.commerce.price({ min: MIN_PRICE, max: MAX_PRICE })),
         isbn: faker.commerce.isbn(),
         book: {
           authors: book.authors.map((author) => {
@@ -815,8 +816,8 @@ for (let i = 0; i < categoriesRaw.length; i++) {
             name: getPublisherName(),
             description: faker.lorem.paragraph(),
           },
-          year: faker.number.int({ min: 1990, max: 2024 }),
-          pages: faker.number.int({ min: 20, max: 500 }),
+          year: faker.number.int({ min: MIN_YEAR, max: MAX_YEAR }),
+          pages: faker.number.int({ min: MIN_PAGES, max: MAX_PAGES }),
         },
       };
     }),

@@ -4,10 +4,9 @@ import { Slider } from "@nextui-org/react";
 import { SearchActionTypes } from "../../enums/search-action-types";
 import { useSearchContext } from "../../contexts/search-context";
 import { useCustomRouter } from "@/helpers/use-custom-router";
+import { MAX_PRICE, MIN_PRICE } from "@/const/global";
 
 export function FilterByPriceComponent() {
-  const MIN_PRICE = 20;
-  const MAX_PRICE = 1000;
   const minPriceSelected = useSearchContext().state.minprice ?? MIN_PRICE;
   const maxPriceSelected = useSearchContext().state.maxprice ?? MAX_PRICE;
   const searchDispatch = useSearchContext().dispatch;
