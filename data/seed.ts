@@ -155,8 +155,8 @@ const categoriesRaw = [
         authors: ["Brian K. Vaughan", "Fiona Staples"],
       },
       {
-        name: "Fun Home: A Family Tragicomic",
-        authors: ["Alison Bechdel"],
+        name: "Bone",
+        authors: ["Jeff Smith"],
       },
       {
         name: "Batman: The Dark Knight Returns",
@@ -225,8 +225,8 @@ const categoriesRaw = [
         authors: ["Marie Kondo"],
       },
       {
-        name: "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
-        authors: ["James Clear"],
+        name: "Goodbye, Things: The New Japanese Minimalism",
+        authors: ["Fumio Sasaki"],
       },
       {
         name: "The Home Edit: A Guide to Organizing and Realizing Your House Goals",
@@ -241,8 +241,8 @@ const categoriesRaw = [
         authors: ["Meik Wiking"],
       },
       {
-        name: "The Power of Now: A Guide to Spiritual Enlightenment",
-        authors: ["Eckhart Tolle"],
+        name: "Spark Joy: An Illustrated Master Class on the Art of Organizing and Tidying Up",
+        authors: ["Marie Kondo"],
       },
       {
         name: "Essentialism: The Disciplined Pursuit of Less",
@@ -335,8 +335,8 @@ const categoriesRaw = [
         authors: ["Christopher J. Moore"],
       },
       {
-        name: "The Alchemist",
-        authors: ["Paulo Coelho"],
+        name: "The Geography of Bliss: One Grump's Search for the Happiest Places in the World",
+        authors: ["Eric Weiner"],
       },
       {
         name: "DK Eyewitness Travel Guide: Japan",
@@ -429,8 +429,8 @@ const categoriesRaw = [
         authors: ["Homero"],
       },
       {
-        name: "One Hundred Years of Solitude",
-        authors: ["Gabriel García Márquez"],
+        name: "The Brothers Karamazov",
+        authors: ["Fyodor Dostoevsky"],
       },
       {
         name: "Leaves of Grass",
@@ -491,8 +491,8 @@ const categoriesRaw = [
     name: "Romance",
     books: [
       {
-        name: "Pride and Prejudice",
-        authors: ["Jane Austen"],
+        name: "Brighter Than the Sun",
+        authors: ["Julia Quinn"],
       },
       {
         name: "Outlander",
@@ -544,8 +544,8 @@ const categoriesRaw = [
         authors: ["Richard Dawkins"],
       },
       {
-        name: "Sapiens: A Brief History of Humankind",
-        authors: ["Yuval Noah Harari"],
+        name: "The Fabric of the Cosmos: Space, Time, and the Texture of Reality",
+        authors: ["Brian Greene"],
       },
       {
         name: "The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory",
@@ -568,8 +568,8 @@ const categoriesRaw = [
         authors: ["Douglas Hofstadter"],
       },
       {
-        name: "The Immortal Life of Henrietta Lacks",
-        authors: ["Rebecca Skloot"],
+        name: "Cosmos",
+        authors: ["Carl Sagan"],
       },
       {
         name: "Fermat's Enigma: The Epic Quest to Solve the World's Greatest Mathematical Problem",
@@ -716,16 +716,16 @@ const categoriesRaw = [
     name: "Young Adult",
     books: [
       {
-        name: "The Hunger Games",
-        authors: ["Suzanne Collins"],
+        name: "Throne of Glass",
+        authors: ["Sarah J. Maas"],
       },
       {
-        name: "Harry Potter and the Sorcerer's Stone",
-        authors: ["J.K. Rowling"],
+        name: "The Maze Runner",
+        authors: ["James Dashner"],
       },
       {
-        name: "The Fault in Our Stars",
-        authors: ["John Green"],
+        name: "Six of Crows",
+        authors: ["Leigh Bardugo"],
       },
       {
         name: "To All the Boys I've Loved Before",
@@ -752,8 +752,8 @@ const categoriesRaw = [
         authors: ["Markus Zusak"],
       },
       {
-        name: "Simon vs. the Homo Sapiens Agenda",
-        authors: ["Becky Albertalli"],
+        name: "An Ember in the Ashes",
+        authors: ["Sabaa Tahir"],
       },
     ],
   },
@@ -786,6 +786,15 @@ export type Category = {
   products: Product[];
 };
 
+let publishers: string[] = [];
+function getPublisherName(): string {
+  let attempt = "";
+  do {
+    attempt = faker.company.name();
+  } while (publishers.indexOf(attempt) !== -1);
+  return attempt;
+}
+
 let rowsCategories: Category[] = [];
 for (let i = 0; i < categoriesRaw.length; i++) {
   let category = categoriesRaw[i];
@@ -803,7 +812,7 @@ for (let i = 0; i < categoriesRaw.length; i++) {
             return { name: author, description: faker.lorem.paragraph() };
           }),
           publisher: {
-            name: faker.company.name(),
+            name: getPublisherName(),
             description: faker.lorem.paragraph(),
           },
           year: faker.number.int({ min: 1990, max: 2024 }),

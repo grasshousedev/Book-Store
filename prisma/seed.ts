@@ -198,15 +198,36 @@ async function main() {
           },
         });
       }
-
-      // delete duplicated author
-      let duplicatedAuthorsId = dubplicatedAuthorsWithId
+      
+      let duplicatedAuthorsIds = dubplicatedAuthorsWithId
         .filter((author) => author.id != keepAuthor.id)
         .map((author) => author.id);
+      
+      let duplicatedPagesAuthors = await prisma.page.findMany({
+        where: {
+          author: {
+            id: {
+              in: duplicatedAuthorsIds
+            }
+          }
+        }
+      });
+      let duplicatedPagesIds = duplicatedPagesAuthors.map((page) => page.id);
+      
+      // delete duplicated author
       await prisma.author.deleteMany({
         where: {
           id: {
-            in: duplicatedAuthorsId,
+            in: duplicatedAuthorsIds,
+          },
+        },
+      });
+
+      // delete duplicated pages
+      await prisma.page.deleteMany({
+        where: {
+          id: {
+            in: duplicatedPagesIds,
           },
         },
       });
