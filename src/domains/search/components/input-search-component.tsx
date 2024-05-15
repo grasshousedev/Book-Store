@@ -36,7 +36,7 @@ export function InputSearchComponent() {
         startContent={<SearchIcon size={16} className="cursor-pointer" />}
         value={keyword}
         onValueChange={handleChangeValue}
-        placeholder="Search Books"
+        placeholder="Search Books by Title, Author or ISBN"
         onClear={() => console.log("input cleared")}
         aria-label="Search"
       />
