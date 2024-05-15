@@ -1,4 +1,4 @@
-import { LayoutContainer } from "@/domains/layout/containers/layout-container";
+import { LayoutContainer } from "@/domain/layout/containers/layout-container";
 import { fontPrimary, fontSecondary } from "../assets/styles/fonts";
 import "../assets/styles/globals.css";
 import { ReactNode } from "react";

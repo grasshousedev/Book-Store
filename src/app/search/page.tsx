@@ -1,4 +1,4 @@
-import { SearchPageContainer } from "@/domains/search/containers/search-page-container";
+import { SearchPageContainer } from "@/domain/search/containers/search-page-container";
 import { SearchParamsType } from "@/types/search-params-type";
 import { Metadata } from "next";
 

@@ -1,4 +1,4 @@
-import { ProductWithPageAndBookPrisma } from "@/domains/product/types/product-prisma";
+import { ProductWithPageAndBookPrisma } from "@/domain/product/types/product-prisma";
 import prisma from "@/lib/db";
 
 type Params = {

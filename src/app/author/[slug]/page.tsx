@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageType } from "@/const/page";
 import { handlePageBySlugAndType } from "@/helpers/handle-page-by-slug-and-type";
-import { AuthorPageContainer } from "@/domains/author/containers/author-page-container";
+import { AuthorPageContainer } from "@/domain/author/containers/author-page-container";
 
 export async function generateMetadata({
   params,
