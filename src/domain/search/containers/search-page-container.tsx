@@ -6,7 +6,7 @@ export async function SearchPageContainer({
 }: {
   searchParams: SearchParamsType;
 }) {
-  let keyword = searchParams.hasOwnProperty("keyword")
+  /*let keyword = searchParams.hasOwnProperty("keyword")
     ? searchParams["keyword"]
     : null;
 
@@ -38,18 +38,10 @@ export async function SearchPageContainer({
   
   let orderBy = searchParams.hasOwnProperty("orderby")
     ? searchParams["orderby"]
-    : null;
+    : null;*/
   
 
   return (
-    <SearchPageComponent
-      keyword={keyword}
-      categories={categories}
-      minPrice={minPrice}
-      maxPrice={maxPrice}
-      minYear={minYear}
-      maxYear={maxYear}
-      orderBy={orderBy}
-    />
+    <SearchPageComponent />
   );
 }
