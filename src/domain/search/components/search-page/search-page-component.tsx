@@ -13,6 +13,15 @@ import { Fragment } from "react";
 import { useSearchContext } from "../../contexts/search-context";
 import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
 import { OrderByTypes } from "../../enums/order-by-types";
+import { UiLoaderComponent } from "@/domain/ui/components/ui-loader-component";
+import { Button } from "@nextui-org/react";
+import {
+  ArrowDownIcon,
+  ChevronDown,
+  ChevronDownIcon,
+  PlusCircleIcon,
+  PlusIcon,
+} from "lucide-react";
 
 export function SearchPageComponent() {
   const searchState = useSearchContext().state;
@@ -44,7 +53,12 @@ export function SearchPageComponent() {
 
   return (
     <div className="flex flex-col lg:flex-row">
-      <aside className="basis-1/4">
+      <aside className="basis-1/4 relative">
+        {status === "pending" && (
+          <div className="absolute bg-green-900 w-full h-full z-[99] flex items-center justify-center opacity-30 lg:hidden">
+            <UiLoaderComponent />
+          </div>
+        )}
         <SearchFiltersMobileComponent />
         <SearchFiltersDesktopComponent />
       </aside>
@@ -52,7 +66,7 @@ export function SearchPageComponent() {
         <SearchTitleComponent />
         <div className="p-10 pt-0">
           {status === "pending" ? (
-            <p>Loading...</p>
+            <UiLoaderComponent />
           ) : status === "error" ? (
             <p>Error: {error.message}</p>
           ) : (
@@ -61,26 +75,35 @@ export function SearchPageComponent() {
                 {data.pages.map((page, i) => (
                   <Fragment key={i}>
                     {page.data.map((product: ProductWithPageAndBookPrisma) => (
-                      <ProductCardComponent key={product.id} product={product} />
+                      <ProductCardComponent
+                        key={product.id}
+                        product={product}
+                      />
                     ))}
                   </Fragment>
                 ))}
               </div>
-              <div>
-                <button
-                  onClick={() => fetchNextPage()}
-                  disabled={!hasNextPage || isFetchingNextPage}
-                >
-                  {isFetchingNextPage
-                    ? "Loading more..."
-                    : hasNextPage
-                    ? "Load More"
-                    : "Nothing more to load"}
-                </button>
-              </div>
-              <div>
-                {isFetching && !isFetchingNextPage ? "Fetching..." : null}
-              </div>
+              {hasNextPage && (
+                <div className="pt-10 flex justify-center">
+                  <Button
+                    onClick={() => fetchNextPage()}
+                    disabled={!hasNextPage || isFetchingNextPage}
+                    color="primary"
+                    className="w-full lg:w-fit"
+                  >
+                    {isFetchingNextPage ? (
+                      <UiLoaderComponent />
+                    ) : hasNextPage ? (
+                      <>
+                        Load More Results
+                        <ChevronDownIcon />
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </Button>
+                </div>
+              )}
             </>
           )}
         </div>

@@ -3,6 +3,9 @@ import prisma from "@/lib/db";
 import { Prisma } from "@prisma/client";
 
 export async function GET(request: Request) {
+  
+  const PRODUCTS_PER_PAGE = 8;
+
   const { searchParams } = new URL(request.url);
   //try {
   const cursor = parseInt(searchParams.get("cursor"));
@@ -91,8 +94,6 @@ export async function GET(request: Request) {
   const orderByQuery = {
     [orderBy]: Prisma.SortOrder.asc,
   };
-
-  const PRODUCTS_PER_PAGE = 4;
 
   const [data, count] = await prisma.$transaction([
     prisma.product.findMany({
