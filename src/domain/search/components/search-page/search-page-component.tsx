@@ -22,6 +22,8 @@ import {
   PlusCircleIcon,
   PlusIcon,
 } from "lucide-react";
+import { useCustomRouter } from "@/helpers/use-custom-router";
+import { SearchActionTypes } from "../../enums/search-action-types";
 
 export function SearchPageComponent() {
   const searchState = useSearchContext().state;
@@ -32,6 +34,17 @@ export function SearchPageComponent() {
   const minYear = searchState.minyear ?? MIN_YEAR;
   const maxYear = searchState.maxyear ?? MAX_YEAR;
   const orderBy = searchState.orderby ?? OrderByTypes.TITLE;
+
+  const searchDispatch = useSearchContext().dispatch;
+  const customRouter = useCustomRouter();
+
+  function handleClearFilters() {
+    searchDispatch({
+      type: SearchActionTypes.UPDATED_KEYWORD,
+      payload: { keyword: "" },
+    });
+    customRouter.push("keyword", "", "/search", true);
+  }
 
   const {
     data,
@@ -71,6 +84,18 @@ export function SearchPageComponent() {
             <p>Error: {error.message}</p>
           ) : (
             <>
+              <div className="pb-4">
+                <span>
+                  {data.pages.length > 0 && data.pages[0].data.length > 0
+                    ? `${data.pages[0].count} product${
+                        data.pages[0].count > 1 ? "s" : ""
+                      } found.`
+                    : "No products found."}
+                </span>
+                <Button size="sm" className="ml-2" onClick={handleClearFilters}>
+                  Clear Filters
+                </Button>
+              </div>
               <div className="flex flex-wrap justify-center gap-4">
                 {data.pages.map((page, i) => (
                   <Fragment key={i}>

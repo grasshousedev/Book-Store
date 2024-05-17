@@ -133,7 +133,7 @@ export async function GET(request: Request) {
     }),
   ]);
 
-  const response: InfiniteSearchResponseType = { data: data };
+  const response: InfiniteSearchResponseType = { data: data, count: count };
   const totalPages = Math.ceil(count / PRODUCTS_PER_PAGE);
   const currentPage = cursor / PRODUCTS_PER_PAGE + 1;
   if (totalPages > currentPage) {

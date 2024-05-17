@@ -2,5 +2,6 @@ import { ProductWithPageAndBookPrisma } from "@/domain/product/types/product-pri
 
 export type InfiniteSearchResponseType = {
   data: ProductWithPageAndBookPrisma[];
+  count: number;
   nextCursor?: number;
 };
