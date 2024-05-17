@@ -3,4 +3,4 @@ export enum OrderByTypes {
   PRICE = "price",
 }
 
-export type OrderByType = "name" | "price" | null;
+export type OrderByType = "name" | "price";

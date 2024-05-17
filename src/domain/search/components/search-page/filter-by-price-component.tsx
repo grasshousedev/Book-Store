@@ -7,8 +7,8 @@ import { useCustomRouter } from "@/helpers/use-custom-router";
 import { MAX_PRICE, MIN_PRICE } from "@/const/global";
 
 export function FilterByPriceComponent() {
-  const minPriceSelected = useSearchContext().state.minprice ?? MIN_PRICE;
-  const maxPriceSelected = useSearchContext().state.maxprice ?? MAX_PRICE;
+  const minPriceSelected = useSearchContext().state.minprice;
+  const maxPriceSelected = useSearchContext().state.maxprice;
   const searchDispatch = useSearchContext().dispatch;
   const customRouter = useCustomRouter();
 

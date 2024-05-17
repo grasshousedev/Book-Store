@@ -6,25 +6,26 @@ import { SearchActionType } from "../types/search-action-type";
 import { SearchActionTypes } from "../enums/search-action-types";
 import { SearchContextType } from "../types/search-context-type";
 import { useSearchParams } from "next/navigation";
-import { OrderByTypes } from "../enums/order-by-types";
 import { DEFAULT_ORDER_BY } from "../consts";
 import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
-import { getIntValue } from "@/helpers/get-int-value";
 import { getSearchParams } from "../helpers/get-search-params";
 
 const SearchContext = createContext<SearchContextType>({} as SearchContextType);
 
-function searchReducer(search: SearchType, action: SearchActionType) {
+function searchReducer(
+  search: SearchType,
+  action: SearchActionType
+): SearchType {
   switch (action.type) {
     case SearchActionTypes.UPDATED_KEYWORD:
       return {
         ...search,
         keyword: action.payload.keyword,
-        categories: null,
-        minprice: null,
-        maxprice: null,
-        minyear: null,
-        maxyear: null,
+        categories: [""],
+        minprice: MIN_PRICE,
+        maxprice: MAX_PRICE,
+        minyear: MIN_YEAR,
+        maxyear: MAX_YEAR,
         orderby: DEFAULT_ORDER_BY,
       };
     case SearchActionTypes.UPDATED_ORDERBY:
@@ -50,9 +51,8 @@ function searchReducer(search: SearchType, action: SearchActionType) {
 
 export function SearchProvider({ children }: { children: ReactNode }) {
   const searchParams = useSearchParams();
-
-  const { keyword, categories, minPrice, maxPrice, minYear, maxYear, orderBy } = getSearchParams(searchParams);
-
+  const { keyword, categories, minPrice, maxPrice, minYear, maxYear, orderBy } =
+    getSearchParams(searchParams);
   const initialStateBySearchParams = {
     keyword: keyword,
     categories: categories,
@@ -62,16 +62,13 @@ export function SearchProvider({ children }: { children: ReactNode }) {
     maxyear: maxYear,
     orderby: orderBy,
   };
-
   const [state, dispatch] = useReducer(
     searchReducer,
     initialStateBySearchParams
   );
 
   return (
-    <SearchContext.Provider
-      value={{ state, dispatch /*, getSearchItemsQty, searchItemsSubtotal*/ }}
-    >
+    <SearchContext.Provider value={{ state, dispatch }}>
       {children}
     </SearchContext.Provider>
   );

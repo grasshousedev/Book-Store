@@ -1,11 +1,9 @@
-import { OrderByType } from "../enums/order-by-types";
-
 export type SearchType = {
-  keyword: string | null;
-  categories: string[] | null;
-  minprice: number | null;
-  maxprice: number | null;
-  minyear: number | null;
-  maxyear: number | null;
-  orderby: string | null;
+  keyword: string;
+  categories: string[];
+  minprice: number;
+  maxprice: number;
+  minyear: number;
+  maxyear: number;
+  orderby: string;
 };

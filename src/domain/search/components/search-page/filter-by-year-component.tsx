@@ -7,8 +7,8 @@ import { useCustomRouter } from "@/helpers/use-custom-router";
 import { MAX_YEAR, MIN_YEAR } from "@/const/global";
 
 export function FilterByYearComponent() {
-  const minYearSelected = useSearchContext().state.minyear ?? MIN_YEAR;
-  const maxYearSelected = useSearchContext().state.maxyear ?? MAX_YEAR;
+  const minYearSelected = useSearchContext().state.minyear;
+  const maxYearSelected = useSearchContext().state.maxyear;
   const searchDispatch = useSearchContext().dispatch;
   const customRouter = useCustomRouter();
 

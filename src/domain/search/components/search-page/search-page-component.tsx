@@ -1,27 +1,17 @@
 "use client";
 
-import { ProductListingComponent } from "@/domain/product/components/product-listing-component";
-import prisma from "@/lib/db";
 import { SearchFiltersMobileComponent } from "./search-filters-mobile-component";
 import { SearchFiltersDesktopComponent } from "./search-filters-desktop-component";
 import { SearchTitleComponent } from "./search-title-component";
 import { ProductWithPageAndBookPrisma } from "@/domain/product/types/product-prisma";
-import { Prisma } from "@prisma/client";
 import { ProductCardComponent } from "@/domain/product/components/product-card-component";
 import { useProductsInfiniteQuery } from "../../queries/use-products-infinite-query";
 import { Fragment } from "react";
 import { useSearchContext } from "../../contexts/search-context";
 import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
-import { OrderByTypes } from "../../enums/order-by-types";
 import { UiLoaderComponent } from "@/domain/ui/components/ui-loader-component";
 import { Button } from "@nextui-org/react";
-import {
-  ArrowDownIcon,
-  ChevronDown,
-  ChevronDownIcon,
-  PlusCircleIcon,
-  PlusIcon,
-} from "lucide-react";
+import { ChevronDownIcon } from "lucide-react";
 import { useCustomRouter } from "@/helpers/use-custom-router";
 import { SearchActionTypes } from "../../enums/search-action-types";
 import { DEFAULT_ORDER_BY } from "../../consts";
@@ -35,7 +25,6 @@ export function SearchPageComponent() {
   const minYear = searchState.minyear ?? MIN_YEAR;
   const maxYear = searchState.maxyear ?? MAX_YEAR;
   const orderBy = searchState.orderby ?? DEFAULT_ORDER_BY;
-
   const searchDispatch = useSearchContext().dispatch;
   const customRouter = useCustomRouter();
 

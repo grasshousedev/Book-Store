@@ -1,10 +1,11 @@
 import { SearchActionTypes } from "../enums/search-action-types";
 
 type SearchActionTypeType =
-  | SearchActionTypes.ADD_TO_SEARCH
-  | SearchActionTypes.REMOVE_FROM_SEARCH
-  | SearchActionTypes.INCREASE_SEARCH_ITEM_QUANTITY
-  | SearchActionTypes.DECREASE_SEARCH_ITEM_QUANTITY;
+  | SearchActionTypes.UPDATED_KEYWORD
+  | SearchActionTypes.UPDATED_CATEGORIES
+  | SearchActionTypes.UPDATED_PRICE
+  | SearchActionTypes.UPDATED_YEAR
+  | SearchActionTypes.UPDATED_ORDERBY;
 
 export type SearchActionType = {
   type: SearchActionTypeType;

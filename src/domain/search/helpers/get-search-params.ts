@@ -1,6 +1,5 @@
 import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
 import { getIntValue } from "@/helpers/get-int-value";
-import { ReadonlyURLSearchParams } from "next/navigation";
 import { DEFAULT_ORDER_BY } from "../consts";
 import { OrderByTypes } from "../enums/order-by-types";
 

@@ -16,10 +16,6 @@ export async function generateMetadata({
   };
 }
 
-export default function Search({
-  searchParams,
-}: {
-  searchParams: SearchParamsType;
-}) {
-  return <SearchPageContainer searchParams={searchParams} />;
+export default function Search() {
+  return <SearchPageContainer />;
 }
