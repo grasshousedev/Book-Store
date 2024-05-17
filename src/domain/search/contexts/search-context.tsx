@@ -8,6 +8,9 @@ import { SearchContextType } from "../types/search-context-type";
 import { useSearchParams } from "next/navigation";
 import { OrderByTypes } from "../enums/order-by-types";
 import { DEFAULT_ORDER_BY } from "../consts";
+import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
+import { getIntValue } from "@/helpers/get-int-value";
+import { getSearchParams } from "../helpers/get-search-params";
 
 const SearchContext = createContext<SearchContextType>({} as SearchContextType);
 
@@ -47,31 +50,17 @@ function searchReducer(search: SearchType, action: SearchActionType) {
 
 export function SearchProvider({ children }: { children: ReactNode }) {
   const searchParams = useSearchParams();
-  const keyword = searchParams.get("keyword") ?? "";
-  const categories = searchParams.getAll("categories");
 
-  const minPriceFromUrl = searchParams.get("minprice");
-  const minprice = minPriceFromUrl === null ? null : parseInt(minPriceFromUrl);
-
-  const maxPriceFromUrl = searchParams.get("maxprice");
-  const maxprice = maxPriceFromUrl === null ? null : parseInt(maxPriceFromUrl);
-
-  const minYearFromUrl = searchParams.get("minyear");
-  const minyear = minYearFromUrl === null ? null : parseInt(minYearFromUrl);
-
-  const maxYearFromUrl = searchParams.get("maxyear");
-  const maxyear = maxYearFromUrl === null ? null : parseInt(maxYearFromUrl);
-
-  const orderby = searchParams.get("orderby") ?? DEFAULT_ORDER_BY;
+  const { keyword, categories, minPrice, maxPrice, minYear, maxYear, orderBy } = getSearchParams(searchParams);
 
   const initialStateBySearchParams = {
     keyword: keyword,
     categories: categories,
-    minprice: minprice,
-    maxprice: maxprice,
-    minyear: minyear,
-    maxyear: maxyear,
-    orderby: orderby,
+    minprice: minPrice,
+    maxprice: maxPrice,
+    minyear: minYear,
+    maxyear: maxYear,
+    orderby: orderBy,
   };
 
   const [state, dispatch] = useReducer(

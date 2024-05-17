@@ -1,6 +1,7 @@
 import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
 import { DEFAULT_ORDER_BY, PRODUCTS_PER_PAGE } from "@/domain/search/consts";
 import { OrderByTypes } from "@/domain/search/enums/order-by-types";
+import { getSearchParams } from "@/domain/search/helpers/get-search-params";
 import { InfiniteSearchResponseType } from "@/domain/search/types/infinite-search-response-type";
 import { getIntValue } from "@/helpers/get-int-value";
 import prisma from "@/lib/db";
@@ -10,22 +11,7 @@ export async function GET(request: Request) {
 
   const { searchParams } = new URL(request.url);
   const cursor = getIntValue(searchParams.get("cursor"), 0);
-  const keyword = searchParams.get("keyword");
-  const categories = searchParams.getAll("categories");
-  const minPrice = getIntValue(searchParams.get("minprice"), MIN_PRICE);
-  const maxPrice = getIntValue(searchParams.get("maxprice"), MAX_PRICE);
-  const minYear = getIntValue(searchParams.get("minyear"), MIN_YEAR);
-  const maxYear = getIntValue(searchParams.get("maxyear"), MAX_YEAR);
-  const orderByParam = searchParams.get("orderby");
-  let orderBy: OrderByTypes = DEFAULT_ORDER_BY;
-  if (
-    orderByParam !== null &&
-    // @ts-ignore
-    Object.values(OrderByTypes).includes(orderByParam)
-  ) {
-    // @ts-ignore
-    orderBy = orderByParam;
-  }
+  const { keyword, categories, minPrice, maxPrice, minYear, maxYear, orderBy } = getSearchParams(searchParams);
 
   const keywordFilter =
     keyword != ""

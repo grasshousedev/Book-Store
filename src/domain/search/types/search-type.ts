@@ -1,7 +1,7 @@
 import { OrderByType } from "../enums/order-by-types";
 
 export type SearchType = {
-  keyword: string;
+  keyword: string | null;
   categories: string[] | null;
   minprice: number | null;
   maxprice: number | null;
