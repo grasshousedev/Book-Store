@@ -17,6 +17,7 @@ export function MenuItemComponent({
   props.className = props.className
     ? `${liClasses} ${props.className}`
     : liClasses;
+    
   return (
     <li {...props}>
       {href ? (

@@ -8,6 +8,7 @@ export function AuthorProductsComponent() {
   const products = author.books.map((book) => {
     return book.product;
   })
+  
   return (
     <div className="p-10">
       <ProductListingComponent products={products} />

@@ -14,6 +14,7 @@ export function AuthorLinkComponent({
   ...props
 }: AuthorLinkComponentInterface) {
   const link = `/author/${author.page.slug}`;
+  
   return (
     <Link href={link} title={author.name} rel="author" className={props.className}>
       {children}

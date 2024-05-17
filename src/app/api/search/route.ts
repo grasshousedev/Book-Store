@@ -1,6 +1,4 @@
-import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
-import { DEFAULT_ORDER_BY, PRODUCTS_PER_PAGE } from "@/domain/search/consts";
-import { OrderByTypes } from "@/domain/search/enums/order-by-types";
+import { PRODUCTS_PER_PAGE } from "@/domain/search/consts";
 import { getSearchParams } from "@/domain/search/helpers/get-search-params";
 import { InfiniteSearchResponseType } from "@/domain/search/types/infinite-search-response-type";
 import { getIntValue } from "@/helpers/get-int-value";
@@ -8,7 +6,6 @@ import prisma from "@/lib/db";
 import { Prisma } from "@prisma/client";
 
 export async function GET(request: Request) {
-
   const { searchParams } = new URL(request.url);
   const cursor = getIntValue(searchParams.get("cursor"), 0);
   const { keyword, categories, minPrice, maxPrice, minYear, maxYear, orderBy } = getSearchParams(searchParams);

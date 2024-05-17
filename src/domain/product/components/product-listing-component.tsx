@@ -14,6 +14,7 @@ export function ProductListingComponent({
 }: ProductListingComponentInterface) {
   let divClasses = "flex flex-wrap justify-center gap-4";
   props.className = props.className ? `${divClasses} ${props.className}` : divClasses;
+  
   return (
     <div {...props}>
       {products.map((product) => (

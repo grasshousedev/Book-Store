@@ -12,6 +12,7 @@ import { ProductsByAuthorComponent } from "./products-by-author-component";
 export function ProductPageComponent() {
   const product: ProductWithBookAndCategoriesPrisma =
     useProductPageContext().state.product;
+    
   return (
     <div className="flex flex-row">
       <aside className="basis-1/4 hidden lg:block">

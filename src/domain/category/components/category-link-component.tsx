@@ -15,6 +15,7 @@ export function CategoryLinkComponent({
   ...props
 }: CategoryLinkComponentInterface) {
   const link = getCategoryUrl(category);
+  
   return (
     <Link href={link} title={category.name} className={props.className}>
       {children}

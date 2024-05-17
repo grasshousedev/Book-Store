@@ -16,6 +16,7 @@ export function ProductLinkComponent({
 }: ProductLinkComponentInterface) {
   const link = `/product/${product.page.slug}`;
   const title = `${product.name} by ${getAuthorsByProduct(product)}`;
+  
   return (
     <Link href={link} title={title} className={props.className}>
       {children}

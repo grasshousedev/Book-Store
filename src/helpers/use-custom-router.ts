@@ -6,6 +6,7 @@ export function useCustomRouter() {
   const router = useRouter();
   const pathFromRouter = usePathname();
   const searchParams = useSearchParams();
+
   function push(
     name: string | string[],
     value: string | string[],
@@ -35,5 +36,6 @@ export function useCustomRouter() {
 
     router.push(`${finalPath}?${params.toString()}`, { scroll: false });
   }
+  
   return { push: push };
 }

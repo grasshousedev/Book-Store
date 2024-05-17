@@ -8,6 +8,7 @@ import { useCategoryPageContext } from "../../contexts/category-page-context";
 export function AllCategoriesComponent() {
   const categories = useLayoutContext().state.categories;
   const currentCategory = useCategoryPageContext().state?.category;
+  
   return (
     <nav className="p-10">
       <UiTitleComponent level="h2" size="small">

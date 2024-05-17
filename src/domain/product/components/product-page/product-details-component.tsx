@@ -10,6 +10,7 @@ export function ProductDetailsComponent({
 }: React.ComponentProps<"div">) {
   const product: ProductWithBookAndCategoriesPrisma =
     useProductPageContext().state.product;
+    
   return (
     <div {...props}>
       <UiTitleComponent level="h2" size="medium" className="mt-10">

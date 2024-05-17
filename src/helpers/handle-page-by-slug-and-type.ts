@@ -1,4 +1,4 @@
-import { PageType } from "@/const/page";
+import { PageType } from "@/types/page-type";
 import prisma from "@/lib/db";
 import { notFound } from "next/navigation";
 

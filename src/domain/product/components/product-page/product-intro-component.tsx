@@ -10,6 +10,7 @@ export function ProductIntroComponent({
 }: React.ComponentProps<"div">) {
   const product: ProductWithBookAndCategoriesPrisma =
     useProductPageContext().state.product;
+    
   return (
     <div {...props}>
       <UiTitleComponent size="large">{product.name}</UiTitleComponent>

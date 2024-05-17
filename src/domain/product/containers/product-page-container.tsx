@@ -3,7 +3,7 @@ import prisma from "@/lib/db";
 import { ProductWithBookAndCategoriesPrisma } from "../types/product-prisma";
 import { notFound } from "next/navigation";
 import { ProductPageComponent } from "../components/product-page/product-page-component";
-import { PageType } from "@/const/page";
+import { PageType } from "@/types/page-type";
 
 export async function ProductPageContainer({ slug }: { slug: string }) {
   try {

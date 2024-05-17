@@ -10,10 +10,8 @@ import { Fragment } from "react";
 export function MenuComponent({ ...props }: React.ComponentProps<"nav">) {
   const menuState = useMenuContext().state;
   const showMenuMobileClass = menuState.isOpen ? "" : "hidden";
-
   const layoutState = useLayoutContext().state;
   const categories = layoutState.categories;
-
   let navClasses = `${showMenuMobileClass} lg:block`;
   props.className = props.className
     ? `${navClasses} ${props.className}`

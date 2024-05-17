@@ -1,6 +1,6 @@
 import { LayoutContainer } from "@/domain/layout/containers/layout-container";
-import { fontPrimary, fontSecondary } from "../assets/styles/fonts";
-import "../assets/styles/globals.css";
+import { fontPrimary, fontSecondary } from "@/assets/styles/fonts";
+import "@/assets/styles/globals.css";
 import { ReactNode } from "react";
 import { Providers } from "./providers";
 

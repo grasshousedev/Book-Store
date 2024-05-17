@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageType } from "@/const/page";
+import { PageType } from "@/types/page-type";
 import { handlePageBySlugAndType } from "@/helpers/handle-page-by-slug-and-type";
 import { CmsPageContainer } from "@/domain/cmsPage/containers/cms-page-container";
 

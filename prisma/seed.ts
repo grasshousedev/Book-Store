@@ -10,9 +10,9 @@ import {
   categories,
   cmsPages,
 } from "../data/seed";
-import { PageType } from "../src/const/page";
-import { getSlug } from "../src/helpers/get-slug";
-import { truncate } from "../src/helpers/truncate";
+import { PageType } from "@/types/page-type";
+import { getSlug } from "@/helpers/get-slug";
+import { truncate } from "@/helpers/truncate";
 
 function getMetaTitle(pageType: PageType, text: string | string[]): string {
   if (pageType === PageType.CATEGORY) {
@@ -198,22 +198,22 @@ async function main() {
           },
         });
       }
-      
+
       let duplicatedAuthorsIds = dubplicatedAuthorsWithId
         .filter((author) => author.id != keepAuthor.id)
         .map((author) => author.id);
-      
+
       let duplicatedPagesAuthors = await prisma.page.findMany({
         where: {
           author: {
             id: {
-              in: duplicatedAuthorsIds
-            }
-          }
-        }
+              in: duplicatedAuthorsIds,
+            },
+          },
+        },
       });
       let duplicatedPagesIds = duplicatedPagesAuthors.map((page) => page.id);
-      
+
       // delete duplicated author
       await prisma.author.deleteMany({
         where: {

@@ -41,7 +41,6 @@ export function SearchPageComponent() {
     error,
     fetchNextPage,
     hasNextPage,
-    isFetching,
     isFetchingNextPage,
     status,
   } = useProductsInfiniteQuery(
