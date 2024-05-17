@@ -1,21 +1,31 @@
+import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
+import { OrderByTypes } from "@/domain/search/enums/order-by-types";
 import { InfiniteSearchResponseType } from "@/domain/search/types/infinite-search-response-type";
+import { getIntValue } from "@/helpers/get-int-value";
 import prisma from "@/lib/db";
 import { Prisma } from "@prisma/client";
 
 export async function GET(request: Request) {
-  
   const PRODUCTS_PER_PAGE = 8;
 
   const { searchParams } = new URL(request.url);
-  //try {
-  const cursor = parseInt(searchParams.get("cursor"));
+  const cursor = getIntValue(searchParams.get("cursor"), 0);
   const keyword = searchParams.get("keyword");
   const categories = searchParams.getAll("categories");
-  const minPrice = parseInt(searchParams.get("minprice"));
-  const maxPrice = parseInt(searchParams.get("maxprice"));
-  const minYear = parseInt(searchParams.get("minyear"));
-  const maxYear = parseInt(searchParams.get("maxyear"));
-  const orderBy = searchParams.get("orderby");
+  const minPrice = getIntValue(searchParams.get("minprice"), MIN_PRICE);
+  const maxPrice = getIntValue(searchParams.get("maxprice"), MAX_PRICE);
+  const minYear = getIntValue(searchParams.get("minyear"), MIN_YEAR);
+  const maxYear = getIntValue(searchParams.get("maxyear"), MAX_YEAR);
+  const orderByParam = searchParams.get("orderby");
+  let orderBy: OrderByTypes = OrderByTypes.TITLE;
+  if (
+    orderByParam !== null &&
+    // @ts-ignore
+    Object.values(OrderByTypes).includes(orderByParam)
+  ) {
+    // @ts-ignore
+    orderBy = orderByParam;
+  }
 
   const keywordFilter =
     keyword != ""
@@ -137,11 +147,10 @@ export async function GET(request: Request) {
   const totalPages = Math.ceil(count / PRODUCTS_PER_PAGE);
   const currentPage = cursor / PRODUCTS_PER_PAGE + 1;
   if (totalPages > currentPage) {
-    return Response.json({ ...response, nextCursor: cursor + PRODUCTS_PER_PAGE });
+    return Response.json({
+      ...response,
+      nextCursor: cursor + PRODUCTS_PER_PAGE,
+    });
   }
   return Response.json(response);
-  /*} catch (error) {
-    console.log(error);
-    return Response.json({});
-  }*/
 }
