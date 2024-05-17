@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { useCustomRouter } from "@/helpers/use-custom-router";
 import { SearchActionTypes } from "../../enums/search-action-types";
+import { DEFAULT_ORDER_BY } from "../../consts";
 
 export function SearchPageComponent() {
   const searchState = useSearchContext().state;
@@ -33,7 +34,7 @@ export function SearchPageComponent() {
   const maxPrice = searchState.maxprice ?? MAX_PRICE;
   const minYear = searchState.minyear ?? MIN_YEAR;
   const maxYear = searchState.maxyear ?? MAX_YEAR;
-  const orderBy = searchState.orderby ?? OrderByTypes.TITLE;
+  const orderBy = searchState.orderby ?? DEFAULT_ORDER_BY;
 
   const searchDispatch = useSearchContext().dispatch;
   const customRouter = useCustomRouter();

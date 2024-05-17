@@ -7,6 +7,7 @@ import { SearchActionTypes } from "../enums/search-action-types";
 import { SearchContextType } from "../types/search-context-type";
 import { useSearchParams } from "next/navigation";
 import { OrderByTypes } from "../enums/order-by-types";
+import { DEFAULT_ORDER_BY } from "../consts";
 
 const SearchContext = createContext<SearchContextType>({} as SearchContextType);
 
@@ -21,7 +22,7 @@ function searchReducer(search: SearchType, action: SearchActionType) {
         maxprice: null,
         minyear: null,
         maxyear: null,
-        orderby: OrderByTypes.TITLE,
+        orderby: DEFAULT_ORDER_BY,
       };
     case SearchActionTypes.UPDATED_ORDERBY:
       return { ...search, orderby: action.payload.orderby };
@@ -61,7 +62,7 @@ export function SearchProvider({ children }: { children: ReactNode }) {
   const maxYearFromUrl = searchParams.get("maxyear");
   const maxyear = maxYearFromUrl === null ? null : parseInt(maxYearFromUrl);
 
-  const orderby = searchParams.get("orderby") ?? OrderByTypes.TITLE;
+  const orderby = searchParams.get("orderby") ?? DEFAULT_ORDER_BY;
 
   const initialStateBySearchParams = {
     keyword: keyword,

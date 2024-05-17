@@ -1,4 +1,5 @@
 import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
+import { DEFAULT_ORDER_BY } from "@/domain/search/consts";
 import { OrderByTypes } from "@/domain/search/enums/order-by-types";
 import { InfiniteSearchResponseType } from "@/domain/search/types/infinite-search-response-type";
 import { getIntValue } from "@/helpers/get-int-value";
@@ -17,7 +18,7 @@ export async function GET(request: Request) {
   const minYear = getIntValue(searchParams.get("minyear"), MIN_YEAR);
   const maxYear = getIntValue(searchParams.get("maxyear"), MAX_YEAR);
   const orderByParam = searchParams.get("orderby");
-  let orderBy: OrderByTypes = OrderByTypes.TITLE;
+  let orderBy: OrderByTypes = DEFAULT_ORDER_BY;
   if (
     orderByParam !== null &&
     // @ts-ignore
