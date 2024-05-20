@@ -8,9 +8,9 @@ export function FeaturedAuthorsComponent() {
   const authors = useFeaturedAuthorsContext().state.authors;
   
   return (
-    <section className="p-10 text-center">
+    <section className="p-10">
       <UiTitleComponent level="h2" size="large">Featured Authors</UiTitleComponent>
-      <div className="flex flex-wrap justify-center gap-5">
+      <div className="flex flex-wrap justify-center gap-5 text-center">
         {authors.map((author) => (
           <AuthorCardComponent key={author.id} author={author} />
         ))}

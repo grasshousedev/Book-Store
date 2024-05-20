@@ -12,7 +12,7 @@ export function ProductCardComponent({
   return (
     <ProductListItemComponent>
       <ProductLinkComponent product={product}>
-        <div className="bg-gray-500 w-[187px] h-[249px]"></div>
+        <div className="bg-green-300 w-[187px] h-[249px]"></div>
       </ProductLinkComponent>
       <UiTitleComponent level="h6" size="small" className="line-clamp-2 mt-2">
         <ProductLinkComponent product={product}>

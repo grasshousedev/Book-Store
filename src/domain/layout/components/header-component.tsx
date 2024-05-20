@@ -18,7 +18,7 @@ export function HeaderComponent() {
           <div className="flex flex-col-reverse lg:flex-row grow self-stretch lg:self-auto items-center">
             <MenuComponent className="grow self-stretch lg:self-auto pb-4" />
             <div className="flex items-start divide-x py-4">
-              <Link href="/account" className="flex items-center gap-2 pr-3">
+              <Link href="/" className="flex items-center gap-2 pr-3">
                 <UserIcon /> <span>Account</span>
               </Link>
               <CartCtaComponent />

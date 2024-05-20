@@ -25,7 +25,7 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
         product={product}
         className="w-[145px] lg:row-span-2"
       >
-        <div className="bg-gray-500 w-[145px] h-[193px]"></div>
+        <div className="bg-green-300 w-[145px] h-[193px]"></div>
       </ProductLinkComponent>
       <div className="h-fit">
         <ProductLinkComponent product={product} className="line-clamp-2">

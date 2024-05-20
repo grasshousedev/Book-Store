@@ -57,7 +57,7 @@ export function CartPageComponent() {
                   ): <UiPriceComponent value={cartItemsSubtotal.toString()} />
                 </span>
                 <Link
-                  href="checkout"
+                  href="/cart"
                   title="Checkout"
                   className="bg-primary-900 font-bold p-4 text-primary-100 block text-center mt-2 uppercase"
                 >
@@ -69,7 +69,7 @@ export function CartPageComponent() {
               </>
             )}
             <Link
-              href="checkout"
+              href="/"
               title="Continue Shopping"
               className="bg-primary-100 font-bold p-4 text-primary-900 block text-center mt-2 text-sm"
             >
