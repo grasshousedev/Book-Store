@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export function FooterComponent() {
   return (
-    <div className="bg-primary-900">
+    <div className="bg-primary-900" data-testid="footer">
       <UiWrapperComponent className="grid grid-cols-1 lg:grid-cols-3 -mt-20">
         <div className="bg-primary-400 p-10 xl:rounded-bl-lg">
           <UiTitleComponent level="h3" size="small">
