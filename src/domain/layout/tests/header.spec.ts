@@ -9,7 +9,7 @@ test.describe("Header", () => {
   test("should display logo", async ({ page }) => {
     const header = page.getByTestId("header");
 
-    await expect(header.locator("a").first()).toBeVisible;
+    await expect(header.locator("_react=EmmanuelsBookStoreImage").first()).toBeVisible;
   });
   
 });
