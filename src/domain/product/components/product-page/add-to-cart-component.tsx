@@ -15,7 +15,7 @@ export function AddToCartComponent({ ...props }: React.ComponentProps<"div">) {
   const router = useRouter();
   return (
     <div {...props}>
-      <div className="flex flex-col text-center border p-4">
+      <div className="flex flex-col text-center border p-4" data-testid="add-to-cart-component">
         <span className="text-2xl p-2">
           <UiPriceComponent value={product.price.toString()} />
         </span>
