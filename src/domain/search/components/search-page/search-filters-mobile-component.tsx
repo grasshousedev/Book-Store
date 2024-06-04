@@ -36,7 +36,7 @@ export function SearchFiltersMobileComponent() {
             </UiTitleComponent>
           }
         >
-          <Tabs aria-label="Search Options" size="lg" fullWidth={true} color="primary">
+          <Tabs size="lg" fullWidth={true} color="primary">
             <Tab
               key="filter"
               title={
