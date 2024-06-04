@@ -51,6 +51,7 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
         <div className="border-y border-primary-900 flex gap-2 items-center">
           <UiButtonComponent
             className="text-sm p-1.5"
+            aria-label="decrease quantity"
             onClick={() => {
               cartDispatch({
                 type: CartActionTypes.DECREASE_CART_ITEM_QUANTITY,
@@ -60,9 +61,10 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
           >
             <MinusIcon />
           </UiButtonComponent>
-          <div className="w-10 text-center text-sm">{cartItem.quantity}</div>
+          <div className="w-10 text-center text-sm" aria-label="quantity">{cartItem.quantity}</div>
           <UiButtonComponent
             className="text-sm p-1.5"
+            aria-label="increase quantity"
             onClick={() => {
               cartDispatch({
                 type: CartActionTypes.INCREASE_CART_ITEM_QUANTITY,
@@ -74,7 +76,7 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
           </UiButtonComponent>
         </div>
         <span className="font-bold grow flex items-end justify-end">
-          <span className="">
+          <span aria-label="cart item subtotal">
             <UiPriceComponent
               value={cartItem.quantity * parseInt(product.price.toString())}
             />
