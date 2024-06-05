@@ -101,7 +101,7 @@ This is not real ecommerce! This is an ecommerce for portfolio purposes only.
 ## File Name Convention
 - Lower case
 - Underscore between words
-- Suffixes: -component, -container, -context, -type, -query, -spec
+- Suffixes: -component, -container, -context, -type. -enum, -query, -spec
 
 ## Get Started
 ```bash

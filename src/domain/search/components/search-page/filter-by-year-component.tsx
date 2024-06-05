@@ -1,7 +1,7 @@
 "use client";
 
 import { Slider } from "@nextui-org/react";
-import { SearchActionTypes } from "../../enums/search-action-types";
+import { SearchActionEnum } from "../../enums/search-action-enum";
 import { useSearchContext } from "../../contexts/search-context";
 import { useCustomRouter } from "@/helpers/use-custom-router";
 import { MAX_YEAR, MIN_YEAR } from "@/const/global";
@@ -14,7 +14,7 @@ export function FilterByYearComponent() {
 
   function handleChangeYearRange(values: number[]) {
     searchDispatch({
-      type: SearchActionTypes.UPDATED_YEAR,
+      type: SearchActionEnum.UPDATED_YEAR,
       payload: { minyear: values[0], maxyear: values[1] },
     });
     customRouter.push(

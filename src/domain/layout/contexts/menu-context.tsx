@@ -3,7 +3,7 @@
 import { createContext, useContext, useReducer, ReactNode } from "react";
 import { MenuType } from "../types/menu-type";
 import { MenuActionType } from "../types/menu-action-type";
-import { MenuActionTypes } from "../enums/menu-action-types";
+import { MenuActionEnum } from "../enums/menu-action-enum";
 import { MenuContextType } from "../types/menu-context-type";
 
 const initialState: MenuType = {
@@ -17,7 +17,7 @@ const MenuContext = createContext<MenuContextType>({
 
 function menuReducer(menu: MenuType, action: MenuActionType) {
   switch (action.type) {
-    case MenuActionTypes.CHANGED_IS_OPEN:
+    case MenuActionEnum.CHANGED_IS_OPEN:
       return { ...menu, isOpen: !menu.isOpen };
     default:
       throw Error("Unknown action: " + action.type);

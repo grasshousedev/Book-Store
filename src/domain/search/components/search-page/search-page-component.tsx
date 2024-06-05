@@ -13,7 +13,7 @@ import { UiLoaderComponent } from "@/domain/ui/components/ui-loader-component";
 import { Button } from "@nextui-org/react";
 import { ChevronDownIcon } from "lucide-react";
 import { useCustomRouter } from "@/helpers/use-custom-router";
-import { SearchActionTypes } from "../../enums/search-action-types";
+import { SearchActionEnum } from "../../enums/search-action-enum";
 import { DEFAULT_ORDER_BY } from "../../consts";
 
 export function SearchPageComponent() {
@@ -30,7 +30,7 @@ export function SearchPageComponent() {
 
   function handleClearFilters() {
     searchDispatch({
-      type: SearchActionTypes.UPDATED_KEYWORD,
+      type: SearchActionEnum.UPDATED_KEYWORD,
       payload: { keyword: "" },
     });
     customRouter.push("keyword", "", "/search", true);

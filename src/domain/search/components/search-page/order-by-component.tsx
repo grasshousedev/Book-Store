@@ -1,8 +1,8 @@
 "use client";
 
 import { Divider, RadioGroup, Radio, cn } from "@nextui-org/react";
-import { OrderByTypes } from "../../enums/order-by-types";
-import { SearchActionTypes } from "../../enums/search-action-types";
+import { OrderByEnum } from "../../enums/order-by-enum";
+import { SearchActionEnum } from "../../enums/search-action-enum";
 import { useSearchContext } from "../../contexts/search-context";
 import { useCustomRouter } from "@/helpers/use-custom-router";
 
@@ -13,7 +13,7 @@ export function OrderByComponent() {
 
   function handleChangeOrderBy(value: string) {
     searchDispatch({
-      type: SearchActionTypes.UPDATED_ORDERBY,
+      type: SearchActionEnum.UPDATED_ORDERBY,
       payload: { orderby: value },
     });
     customRouter.push("orderby", value);
@@ -29,7 +29,7 @@ export function OrderByComponent() {
       }}
     >
       <Radio
-        value={OrderByTypes.TITLE}
+        value={OrderByEnum.TITLE}
         classNames={{
           label: cn("py-2"),
         }}
@@ -38,7 +38,7 @@ export function OrderByComponent() {
       </Radio>
       <Divider />
       <Radio
-        value={OrderByTypes.PRICE}
+        value={OrderByEnum.PRICE}
         classNames={{
           label: cn("py-2"),
         }}

@@ -1,10 +1,10 @@
-import { CartActionTypes } from "../enums/cart-action-types";
+import { CartActionEnum } from "../enums/cart-action-enum";
 
 type CartActionTypeType =
-  | CartActionTypes.ADD_TO_CART
-  | CartActionTypes.REMOVE_FROM_CART
-  | CartActionTypes.INCREASE_CART_ITEM_QUANTITY
-  | CartActionTypes.DECREASE_CART_ITEM_QUANTITY;
+  | CartActionEnum.ADD_TO_CART
+  | CartActionEnum.REMOVE_FROM_CART
+  | CartActionEnum.INCREASE_CART_ITEM_QUANTITY
+  | CartActionEnum.DECREASE_CART_ITEM_QUANTITY;
 
 export type CartActionType = {
   type: CartActionTypeType;

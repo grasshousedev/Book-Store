@@ -2,7 +2,7 @@
 
 import { Fragment } from "react";
 import { Divider, CheckboxGroup, Checkbox, cn } from "@nextui-org/react";
-import { SearchActionTypes } from "../../enums/search-action-types";
+import { SearchActionEnum } from "../../enums/search-action-enum";
 import { useSearchContext } from "../../contexts/search-context";
 import { useCustomRouter } from "@/helpers/use-custom-router";
 import { useLayoutContext } from "@/domain/layout/contexts/layout-context";
@@ -16,7 +16,7 @@ export function FilterByCategoryComponent() {
 
   function handleChangeCategories(values: string[]) {
     searchDispatch({
-      type: SearchActionTypes.UPDATED_CATEGORIES,
+      type: SearchActionEnum.UPDATED_CATEGORIES,
       payload: { categories: values },
     });
     customRouter.push("categories", values);

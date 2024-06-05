@@ -4,7 +4,7 @@ import { UiButtonComponent } from "@/domain/ui/components/ui-button-component";
 import { useProductPageContext } from "../../contexts/product-page-context";
 import { ProductWithBookAndCategoriesPrisma } from "../../types/product-prisma";
 import { UiPriceComponent } from "@/domain/ui/components/ui-price-component";
-import { CartActionTypes } from "@/domain/cart/enums/cart-action-types";
+import { CartActionEnum } from "@/domain/cart/enums/cart-action-enum";
 import { useCartContext } from "@/domain/cart/contexts/cart-context";
 import { useRouter } from "next/navigation";
 
@@ -23,7 +23,7 @@ export function AddToCartComponent({ ...props }: React.ComponentProps<"div">) {
           className="p-2"
           onClick={() => {
             cartDispatch({
-              type: CartActionTypes.ADD_TO_CART,
+              type: CartActionEnum.ADD_TO_CART,
               payload: { id: product.id },
             });
             router.push('/cart');

@@ -1,7 +1,7 @@
 "use client";
 
 import { MenuIcon, XIcon } from "lucide-react";
-import { MenuActionTypes } from "../enums/menu-action-types";
+import { MenuActionEnum } from "../enums/menu-action-enum";
 import { useMenuContext } from "../contexts/menu-context";
 
 export interface MenuCtaProps extends React.ComponentProps<"button"> {}
@@ -15,7 +15,7 @@ export function MenuCtaComponent({ ...props }: MenuCtaProps) {
     <button
       {...props}
       onClick={() => {
-        menuDispatch({ type: MenuActionTypes.CHANGED_IS_OPEN });
+        menuDispatch({ type: MenuActionEnum.CHANGED_IS_OPEN });
       }}
     >
       {menuState.isOpen ? <XIcon /> : <MenuIcon />} <span>Menu</span>

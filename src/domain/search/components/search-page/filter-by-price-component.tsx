@@ -1,7 +1,7 @@
 "use client";
 
 import { Slider } from "@nextui-org/react";
-import { SearchActionTypes } from "../../enums/search-action-types";
+import { SearchActionEnum } from "../../enums/search-action-enum";
 import { useSearchContext } from "../../contexts/search-context";
 import { useCustomRouter } from "@/helpers/use-custom-router";
 import { MAX_PRICE, MIN_PRICE } from "@/const/global";
@@ -14,7 +14,7 @@ export function FilterByPriceComponent() {
 
   function handleChangePriceRange(values: number[]) {
     searchDispatch({
-      type: SearchActionTypes.UPDATED_PRICE,
+      type: SearchActionEnum.UPDATED_PRICE,
       payload: { minprice: values[0], maxprice: values[1] },
     });
     customRouter.push(

@@ -1,6 +1,6 @@
-import { MenuActionTypes } from "../enums/menu-action-types";
+import { MenuActionEnum } from "../enums/menu-action-enum";
 
-type MenuActionTypeType = MenuActionTypes.CHANGED_IS_OPEN;
+type MenuActionTypeType = MenuActionEnum.CHANGED_IS_OPEN;
 
 export type MenuActionType = {
   type: MenuActionTypeType;

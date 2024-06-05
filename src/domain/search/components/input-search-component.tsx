@@ -2,7 +2,7 @@
 
 import { Input } from "@nextui-org/react";
 import { SearchIcon } from "lucide-react";
-import { SearchActionTypes } from "../enums/search-action-types";
+import { SearchActionEnum } from "../enums/search-action-enum";
 import { useSearchContext } from "../contexts/search-context";
 import { FormEvent } from "react";
 import { useCustomRouter } from "@/helpers/use-custom-router";
@@ -14,7 +14,7 @@ export function InputSearchComponent() {
 
   function handleChangeValue(value: string) {
     searchDispatch({
-      type: SearchActionTypes.UPDATED_KEYWORD,
+      type: SearchActionEnum.UPDATED_KEYWORD,
       payload: { keyword: value },
     });
     customRouter.push("keyword", value, "/search", true);

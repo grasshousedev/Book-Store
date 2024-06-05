@@ -9,7 +9,7 @@ import {
 } from "react";
 import { CartType } from "../types/cart-type";
 import { CartActionType } from "../types/cart-action-type";
-import { CartActionTypes } from "../enums/cart-action-types";
+import { CartActionEnum } from "../enums/cart-action-enum";
 import { CartContextType } from "../types/cart-context-type";
 import { useLocalStorage } from "usehooks-ts";
 import { useProductsByIdsQuery } from "@/domain/product/queries/use-products-by-ids-query";
@@ -27,7 +27,7 @@ const CartContext = createContext<CartContextType>({
 
 function cartReducer(cart: CartType, action: CartActionType) {
   switch (action.type) {
-    case CartActionTypes.ADD_TO_CART:
+    case CartActionEnum.ADD_TO_CART:
       if (
         cart.items.find((item) => item.id === action.payload.id) === undefined
       ) {
@@ -45,12 +45,12 @@ function cartReducer(cart: CartType, action: CartActionType) {
           return item;
         }),
       };
-    case CartActionTypes.REMOVE_FROM_CART:
+    case CartActionEnum.REMOVE_FROM_CART:
       return {
         ...cart,
         items: cart.items.filter((item) => item.id != action.payload.id),
       };
-    case CartActionTypes.INCREASE_CART_ITEM_QUANTITY:
+    case CartActionEnum.INCREASE_CART_ITEM_QUANTITY:
       return {
         ...cart,
         items: cart.items.map((item) => {
@@ -60,7 +60,7 @@ function cartReducer(cart: CartType, action: CartActionType) {
           return item;
         }),
       };
-    case CartActionTypes.DECREASE_CART_ITEM_QUANTITY:
+    case CartActionEnum.DECREASE_CART_ITEM_QUANTITY:
       return {
         ...cart,
         items: cart.items

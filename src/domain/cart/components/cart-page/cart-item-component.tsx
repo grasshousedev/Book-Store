@@ -7,7 +7,7 @@ import { getAuthorsByProduct } from "@/domain/product/helpers/get-authors-by-pro
 import { UiLoaderComponent } from "@/domain/ui/components/ui-loader-component";
 import { MinusIcon, PlusIcon } from "lucide-react";
 import { useCartContext } from "../../contexts/cart-context";
-import { CartActionTypes } from "../../enums/cart-action-types";
+import { CartActionEnum } from "../../enums/cart-action-enum";
 import { useProductByIdQuery } from "@/domain/product/queries/use-product-by-id-query";
 
 export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
@@ -41,7 +41,7 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
           className="text-sm p-0 bg-transparent text-red-500"
           onClick={() => {
             cartDispatch({
-              type: CartActionTypes.REMOVE_FROM_CART,
+              type: CartActionEnum.REMOVE_FROM_CART,
               payload: { id: product.id },
             });
           }}
@@ -54,7 +54,7 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
             aria-label="decrease quantity"
             onClick={() => {
               cartDispatch({
-                type: CartActionTypes.DECREASE_CART_ITEM_QUANTITY,
+                type: CartActionEnum.DECREASE_CART_ITEM_QUANTITY,
                 payload: { id: product.id },
               });
             }}
@@ -67,7 +67,7 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
             aria-label="increase quantity"
             onClick={() => {
               cartDispatch({
-                type: CartActionTypes.INCREASE_CART_ITEM_QUANTITY,
+                type: CartActionEnum.INCREASE_CART_ITEM_QUANTITY,
                 payload: { id: product.id },
               });
             }}

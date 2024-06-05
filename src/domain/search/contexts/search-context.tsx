@@ -3,7 +3,7 @@
 import { createContext, useContext, useReducer, ReactNode } from "react";
 import { SearchType } from "../types/search-type";
 import { SearchActionType } from "../types/search-action-type";
-import { SearchActionTypes } from "../enums/search-action-types";
+import { SearchActionEnum } from "../enums/search-action-enum";
 import { SearchContextType } from "../types/search-context-type";
 import { useSearchParams } from "next/navigation";
 import { DEFAULT_ORDER_BY } from "../consts";
@@ -17,7 +17,7 @@ function searchReducer(
   action: SearchActionType
 ): SearchType {
   switch (action.type) {
-    case SearchActionTypes.UPDATED_KEYWORD:
+    case SearchActionEnum.UPDATED_KEYWORD:
       return {
         ...search,
         keyword: action.payload.keyword,
@@ -28,17 +28,17 @@ function searchReducer(
         maxyear: MAX_YEAR,
         orderby: DEFAULT_ORDER_BY,
       };
-    case SearchActionTypes.UPDATED_ORDERBY:
+    case SearchActionEnum.UPDATED_ORDERBY:
       return { ...search, orderby: action.payload.orderby };
-    case SearchActionTypes.UPDATED_CATEGORIES:
+    case SearchActionEnum.UPDATED_CATEGORIES:
       return { ...search, categories: action.payload.categories };
-    case SearchActionTypes.UPDATED_PRICE:
+    case SearchActionEnum.UPDATED_PRICE:
       return {
         ...search,
         minprice: action.payload.minprice,
         maxprice: action.payload.maxprice,
       };
-    case SearchActionTypes.UPDATED_YEAR:
+    case SearchActionEnum.UPDATED_YEAR:
       return {
         ...search,
         minyear: action.payload.minyear,
