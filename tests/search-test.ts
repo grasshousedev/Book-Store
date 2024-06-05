@@ -1,4 +1,3 @@
-import { MAX_PRICE, MAX_YEAR, MIN_PRICE, MIN_YEAR } from "@/const/global";
 import { PRODUCTS_PER_PAGE } from "@/domain/search/consts";
 import { test, expect } from "@playwright/test";
 
