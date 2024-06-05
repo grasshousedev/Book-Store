@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { closeCautionModal } from "./helpers/close-caution-modal";
 
 test.describe("Category", () => {
   test("should display page elements", async ({ page, isMobile }) => {
     await page.goto("/category/arts-and-entertainment");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
 
     const content = page.getByTestId("content");
 

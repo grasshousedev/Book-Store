@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { closeCautionModal } from "./helpers/close-caution-modal";
 
 test.describe("Product", () => {
   test("should display page elements", async ({ page, isMobile }) => {
     await page.goto("/product/the-goldfinch");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
 
     const content = page.getByTestId("content");
 
@@ -92,7 +93,7 @@ test.describe("Product", () => {
 
   test("shouldn't display products by author", async ({ page }) => {
     await page.goto("/product/the-martian");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
 
     await expect(
       page

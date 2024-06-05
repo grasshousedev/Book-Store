@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { closeCautionModal } from "./helpers/close-caution-modal";
 
 test.describe("CMS Page", () => {
   test("should display page elements", async ({ page, isMobile }) => {
     await page.goto("/contact-us");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
 
     const content = page.getByTestId("content");
 

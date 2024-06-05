@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { closeCautionModal } from "./helpers/close-caution-modal";
 
 test.describe("Menu", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
   });
 
   test("should allow me to navigate the main menu pages", async ({ page, isMobile }) => {

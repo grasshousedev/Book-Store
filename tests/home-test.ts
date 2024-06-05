@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { closeCautionModal } from "./helpers/close-caution-modal";
 
 test.describe("Home", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
   });
 
   test("should display new release books", async ({ page }) => {

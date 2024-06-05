@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { closeCautionModal } from "./helpers/close-caution-modal";
 
 test.describe("Cart", () => {
   test("should display none items in cart", async ({ page }) => {
     await page.goto("/cart");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     const content = page.getByTestId("content");
 
     // Meta title
@@ -27,7 +28,7 @@ test.describe("Cart", () => {
 
   test("should allow me to add product to cart", async ({ page, isMobile }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
 
     const productLink = page.locator("_react=ProductListItemComponent").first();
     await productLink.click();
@@ -89,7 +90,7 @@ test.describe("Cart", () => {
   test("should allow me change quantity", async ({ page }) => {
     // Go to Home
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
 
     const header = page.getByTestId("header");
     const headerCartQuantity = header
@@ -127,7 +128,7 @@ test.describe("Cart", () => {
 
     // Go to home again
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
 
     // Click on second product
     const productLink2 = (
@@ -224,7 +225,7 @@ test.describe("Cart", () => {
   test("should allow me remove product from cart", async ({ page }) => {
     // Go to Home
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
 
     const header = page.getByTestId("header");
     const headerCartQuantity = header
@@ -263,7 +264,7 @@ test.describe("Cart", () => {
 
     // Go to Home
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
 
     // Click on first product
     await productLink1.click();

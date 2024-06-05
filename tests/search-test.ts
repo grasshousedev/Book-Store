@@ -1,10 +1,11 @@
 import { PRODUCTS_PER_PAGE } from "@/domain/search/consts";
 import { test, expect } from "@playwright/test";
+import { closeCautionModal } from "./helpers/close-caution-modal";
 
 test.describe("Search", () => {
   test("should allow me to search by author", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     const searchField = await page.getByPlaceholder("Search Books");
     await expect(searchField).toBeVisible();
 
@@ -37,7 +38,7 @@ test.describe("Search", () => {
 
   test("should allow me to search by title", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     const searchField = await page.getByPlaceholder("Search Books");
 
     await searchField.fill("A Brief History of Time");
@@ -71,7 +72,7 @@ test.describe("Search", () => {
 
   test("should allow me to search by isbn", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     const searchField = await page.getByPlaceholder("Search Books");
     await searchField.fill("1");
     await expect(page).toHaveURL("/search?keyword=1");
@@ -103,7 +104,7 @@ test.describe("Search", () => {
 
   test("should allow me to clear search bar", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     const searchField = await page.getByPlaceholder("Search Books");
     await searchField.fill("George");
     await page.locator("//span[@data-slot='clear-button']").click();
@@ -121,7 +122,7 @@ test.describe("Search", () => {
   }) => {
     if (!isMobile) {
       await page.goto("/search");
-      await page.getByRole("button", { name: "I understood." }).click();
+      await closeCautionModal(page);
       const searchField = await page.getByPlaceholder("Search Books");
       const content = await page.getByTestId("content");
       const artsCategoryFilter = content.getByText("Arts and Entertainment");
@@ -138,28 +139,28 @@ test.describe("Search", () => {
 
   test("should allow me to access url directly", async ({ page }) => {
     await page.goto("/search?keyword=George");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     await expect(page.getByText("2 products found.")).toBeVisible();
 
     await page.goto("/search?categories=horror");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     await expect(page.getByText("10 products found.")).toBeVisible();
 
     await page.goto("/search?keyword=George&categories=literature-and-poetry");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     await expect(page.getByText("1 product found.")).toBeVisible();
   });
 
   test("should allow me to clear filters", async ({ page }) => {
     await page.goto("/search?keyword=George");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     await page.getByText("Clear Filters").click();
     await expect(page.getByText("160 products found.")).toBeVisible();
   });
 
   test("should allow me to load more results", async ({ page }) => {
     await page.goto("/search");
-    await page.getByRole("button", { name: "I understood." }).click();
+    await closeCautionModal(page);
     await expect(page.locator("_react=ProductCardComponent")).toHaveCount(
       PRODUCTS_PER_PAGE
     );
