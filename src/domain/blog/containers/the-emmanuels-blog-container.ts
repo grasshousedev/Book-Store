@@ -1,1 +1,0 @@
-export { TheEmmanuelsBlogComponent as TheEmmanuelsBlogContainer } from "../components/the-emmanuels-blog-component"

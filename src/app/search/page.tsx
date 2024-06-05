@@ -1,4 +1,4 @@
-import { SearchPageContainer } from "@/domain/search/containers/search-page-container";
+import { SearchPageComponent } from "@/domain/search/components/search-page/search-page-component";
 import { SearchParamsType } from "@/types/search-params-type";
 import { Metadata } from "next";
 
@@ -17,5 +17,5 @@ export async function generateMetadata({
 }
 
 export default function Search() {
-  return <SearchPageContainer />;
+  return <SearchPageComponent />;
 }

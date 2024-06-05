@@ -1,1 +1,0 @@
-export { FooterComponent as FooterContainer } from "../components/footer-component"
