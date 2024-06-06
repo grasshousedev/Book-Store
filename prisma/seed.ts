@@ -10,9 +10,9 @@ import {
   categories,
   cmsPages,
 } from "../data/seed";
-import { PageType } from "@/types/page-type";
-import { getSlug } from "@/helpers/get-slug";
-import { truncate } from "@/helpers/truncate";
+import { PageType } from "../src/types/page-type";
+import { getSlug } from "../src/helpers/get-slug";
+import { truncate } from "../src/helpers/truncate";
 
 function getMetaTitle(pageType: PageType, text: string | string[]): string {
   if (pageType === PageType.CATEGORY) {

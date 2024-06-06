@@ -1,6 +1,6 @@
 import { Prisma } from "@prisma/client";
 import { faker } from "@faker-js/faker";
-import { MAX_PAGES, MAX_PRICE, MAX_YEAR, MIN_PAGES, MIN_PRICE, MIN_YEAR } from "@/const/global";
+import { MAX_PAGES, MAX_PRICE, MAX_YEAR, MIN_PAGES, MIN_PRICE, MIN_YEAR } from "../src/const/global";
 
 const cmsPagesRaw = [
   { title: "Home" },
