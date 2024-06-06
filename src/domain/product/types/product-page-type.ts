@@ -1,5 +1,5 @@
-import { ProductWithPageAndBookPrisma } from "./product-prisma";
+import { ProductWithBookAndCategoriesPrisma } from "./product-prisma";
 
 export type ProductPageType = {
-  product: ProductWithPageAndBookPrisma;
+  product: ProductWithBookAndCategoriesPrisma;
 };
