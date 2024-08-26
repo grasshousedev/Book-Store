@@ -14,12 +14,12 @@ export function ProductCardComponent({
       <ProductLinkComponent product={product}>
         <div className="bg-green-300 w-[187px] h-[249px]"></div>
       </ProductLinkComponent>
-      <UiTitleComponent level="h6" size="small" className="line-clamp-2 mt-2">
+      <UiTitleComponent level="p" size="small" className="line-clamp-2 mt-2">
         <ProductLinkComponent product={product}>
           {product.name}
         </ProductLinkComponent>
       </UiTitleComponent>
-      <span className="line-clamp-2">by {getAuthorsByProduct(product)}</span>
+      <address className="line-clamp-2">by {getAuthorsByProduct(product)}</address>
     </ProductListItemComponent>
   );
 }

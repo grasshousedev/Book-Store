@@ -38,7 +38,7 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
       </div>
       <div className="flex gap-2 h-fit self-end col-span-2 lg:col-auto">
         <UiButtonComponent
-          className="text-sm p-0 bg-transparent text-red-500"
+          className="text-sm p-0 bg-transparent text-red-700"
           onClick={() => {
             cartDispatch({
               type: CartActionEnum.REMOVE_FROM_CART,

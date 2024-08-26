@@ -11,10 +11,10 @@ import Link from "next/link";
 
 export function FooterComponent() {
   return (
-    <div className="bg-primary-900" data-testid="footer">
+    <footer className="bg-primary-900" data-testid="footer">
       <UiWrapperComponent className="grid grid-cols-1 lg:grid-cols-3 -mt-20">
         <div className="bg-primary-400 p-10 xl:rounded-bl-lg">
-          <UiTitleComponent level="h3" size="small">
+          <UiTitleComponent level="h1" size="small">
             Stay Connected
           </UiTitleComponent>
           <p className="py-2">
@@ -59,7 +59,7 @@ export function FooterComponent() {
         <div className="bg-primary-300 col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 lg:pb-10 xl:rounded-br-lg">
           <div>
             <UiTitleComponent
-              level="h3"
+              level="h1"
               size="small"
               id="footer-help"
               className="px-10 pt-10 pb-2 lg:pb-0"
@@ -78,7 +78,7 @@ export function FooterComponent() {
           </div>
           <div>
             <UiTitleComponent
-              level="h3"
+              level="h1"
               size="small"
               id="footer-explore"
               className="px-10 pt-10 pb-2 lg:pb-0"
@@ -97,10 +97,10 @@ export function FooterComponent() {
             </nav>
           </div>
         </div>
-        <div className="col-span-1 lg:col-span-3 text-center p-10 text-primary-600">
+        <div className="col-span-1 lg:col-span-3 text-center p-10 text-primary-200">
           © {new Date().getFullYear()} emmanuelsbookstore.com
         </div>
       </UiWrapperComponent>
-    </div>
+    </footer>
   );
 }

@@ -35,7 +35,7 @@ const config: Config = {
               800: "#166534",
               900: "#14532d",
               foreground: "#ffffff",
-              DEFAULT: "#22c55e",
+              DEFAULT: "#166534",
             },
           },
         },

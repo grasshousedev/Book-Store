@@ -9,10 +9,10 @@ import { InputSearchComponent } from "@/domain/search/components/input-search-co
 
 export function HeaderComponent() {
   return (
-    <div className="bg-primary-500 pb-20" data-testid="header">
+    <header className="bg-primary-500 pb-20" data-testid="header">
       <UiWrapperComponent className="lg:text-xs lg:leading-none">
         <div className="flex flex-col lg:flex-row pt-4 items-center lg:px-10">
-          <Link href="/">
+          <Link href="/" title="Emmanuel's Book Store">
             <EmmanuelsBookStoreImage />
           </Link>
           <div className="flex flex-col-reverse lg:flex-row grow self-stretch lg:self-auto items-center">
@@ -30,6 +30,6 @@ export function HeaderComponent() {
           <InputSearchComponent />
         </div>
       </UiWrapperComponent>
-    </div>
+    </header>
   );
 }

@@ -28,7 +28,7 @@ export function InputSearchComponent() {
   return (
     <form onSubmit={handleSubmit}>
       <Input
-        color="primary"
+        color="default"
         size="sm"
         radius="full"
         labelPlacement="inside"
