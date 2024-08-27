@@ -18,7 +18,7 @@ export function WarningModalComponent() {
 
   return (
     <div>
-      <Modal backdrop="transparent" onClose={onClose} defaultOpen={defaultOpen}>
+      <Modal backdrop="blur" onClose={onClose} defaultOpen={defaultOpen}>
         <ModalContent>
           {(onClose) => (
             <>
