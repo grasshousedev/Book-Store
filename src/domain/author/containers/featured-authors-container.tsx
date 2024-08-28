@@ -8,7 +8,7 @@ export async function FeaturedAuthorsContainer() {
     include: {
       page: true,
     },
-    take: 5,
+    take: 6,
   });
 
   return (

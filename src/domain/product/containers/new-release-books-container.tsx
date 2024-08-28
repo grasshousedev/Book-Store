@@ -13,7 +13,7 @@ export async function NewReleaseBooksContainer() {
       },
       page: true,
     },
-    take: 5,
+    take: 6,
     orderBy: {
       book: {
         year: "desc",

@@ -8,7 +8,7 @@ export function NewReleaseBooksComponent() {
   const books = useNewReleaseBooksContext().state.books;
   
   return (
-    <section className="p-10">
+    <section className="p-4 pb-0 md:p-10">
       <UiTitleComponent level="h2" size="large">New Release Books</UiTitleComponent>
       <ProductListingComponent products={books} className="" />
     </section>
