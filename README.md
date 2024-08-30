@@ -121,5 +121,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## What isn't included on this project?
 - Checkout process
 - Account Registration
-- Images, because of copyright
 
