@@ -9,6 +9,7 @@ import { MinusIcon, PlusIcon } from "lucide-react";
 import { useCartContext } from "../../contexts/cart-context";
 import { CartActionEnum } from "../../enums/cart-action-enum";
 import { useProductByIdQuery } from "@/domain/product/queries/use-product-by-id-query";
+import CldImage from "@/lib/cld-image";
 
 export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
   const cartDispatch = useCartContext().dispatch;
@@ -25,7 +26,17 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
         product={product}
         className="w-[145px] lg:row-span-2"
       >
-        <div className="bg-green-300 w-[145px] h-[193px]"></div>
+        <figure className="bg-green-300 w-[145px] h-[193px] relative">
+          <CldImage
+            src={`product/${product.page.slug}`}
+            width={145}
+            height={193}
+            alt={product.name}
+            className="object-cover w-full h-full"
+            sizes="145px"
+            crop="auto"
+          />
+        </figure>
       </ProductLinkComponent>
       <div className="h-fit">
         <ProductLinkComponent product={product} className="line-clamp-2">
@@ -61,7 +72,9 @@ export function CartItemComponent({ cartItem }: { cartItem: CartItemType }) {
           >
             <MinusIcon />
           </UiButtonComponent>
-          <div className="w-10 text-center text-sm" aria-label="quantity">{cartItem.quantity}</div>
+          <div className="w-10 text-center text-sm" aria-label="quantity">
+            {cartItem.quantity}
+          </div>
           <UiButtonComponent
             className="text-sm p-1.5"
             aria-label="increase quantity"
