@@ -16,6 +16,7 @@ export async function ProductPageContainer({ slug }: { slug: string }) {
           },
         },
         include: {
+          page: true,
           book: {
             include: {
               authors: {

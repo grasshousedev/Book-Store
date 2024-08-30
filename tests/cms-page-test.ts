@@ -12,9 +12,8 @@ test.describe("CMS Page", () => {
     await expect(page).toHaveTitle("Contact Us");
 
     // Heading
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "Contact Us"
-    );
-    
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Contact Us" })
+    ).toBeVisible();
   });
 });

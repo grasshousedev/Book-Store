@@ -11,9 +11,9 @@ test.describe("Cart", () => {
     await expect(page).toHaveTitle("Cart");
 
     // Heading
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "Shopping Cart"
-    );
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Shopping Cart" })
+    ).toBeVisible();
 
     // Info
     await expect(

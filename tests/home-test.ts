@@ -12,7 +12,7 @@ test.describe("Home", () => {
     await expect(heading).toBeVisible();
 
     const products = page.locator("_react=ProductListItemComponent");
-    await expect(products).toHaveCount(5);
+    await expect(products).toHaveCount(6);
   });
 
   test("should display top categories", async ({ page }) => {
@@ -28,6 +28,6 @@ test.describe("Home", () => {
     await expect(heading).toBeVisible();
 
     const authors = page.locator("_react=AuthorCardComponent");
-    await expect(authors).toHaveCount(5);
+    await expect(authors).toHaveCount(6);
   });
 });

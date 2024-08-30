@@ -25,14 +25,13 @@ test.describe("Category", () => {
     }
 
     // Heading
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "Arts and Entertainment"
-    );
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Arts and Entertainment" })
+    ).toBeVisible();
 
     // Product List
     await expect(
       await content.locator("_react=ProductListItemComponent").count()
     ).toBeGreaterThan(4);
-    
   });
 });

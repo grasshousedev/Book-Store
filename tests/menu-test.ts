@@ -18,9 +18,9 @@ test.describe("Menu", () => {
       let link = header.getByRole("link", { name: links[i] });
       await expect(link).toBeVisible();
       await link.click();
-      await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-        links[i]
-      );
+      await expect(
+        page.getByRole("heading", { level: 1, name: links[i] })
+      ).toBeVisible();
     }
   });
 

@@ -25,6 +25,7 @@ export type BookWithAuthorsAndPublisher = Book & {
 };
 
 export type ProductWithBookAndCategoriesPrisma = Product & {
+  page: Page;
   book: BookWithAuthorsAndPublisher | null;
   categories: CategoryWithPageAndProductsPrisma[];
 };

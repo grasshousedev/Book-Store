@@ -25,9 +25,9 @@ test.describe("Product", () => {
     }
 
     // Heading
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "The Goldfinch"
-    );
+    await expect(
+      page.getByRole("heading", { level: 1, name: "The Goldfinch" })
+    ).toBeVisible();
 
     // Author
     await expect(

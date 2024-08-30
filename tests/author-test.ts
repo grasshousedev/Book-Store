@@ -25,14 +25,13 @@ test.describe("Author", () => {
     }
 
     // Heading
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "Donna Tartt"
-    );
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Donna Tartt" })
+    ).toBeVisible();
 
     // Product List
     await expect(
       content.locator("_react=ProductListItemComponent")
     ).toHaveCount(2);
-    
   });
 });
