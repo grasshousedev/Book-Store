@@ -1,10 +1,10 @@
-# Emmanuel's Book Store
+# Oleksandr's Book Store
 
-This is not real ecommerce! This is an ecommerce for portfolio purposes only. Try [live](https://emmanuels-book-store.vercel.app/) version.
+This is not real ecommerce! This is an ecommerce for portfolio purposes only.
 
 ## Get Started
 ```bash
-git clone git@github.com:antoniozanotti/book-store.git
+git clone git@github.com:grasshousedev/Book-Store.git
 cd book-store
 cp .env.example .env
 # change .env file https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-typescript-postgresql
